@@ -33,7 +33,10 @@ data = json.load(jData)
 jData.close()
 
 # remove database if exists
-os.remove("cards.db")
+try:
+	os.remove("cards.db")
+except FileNotFoundError:
+	pass
 
 # connect to SQL database
 conn = sqlite3.connect('cards.db')
@@ -44,6 +47,7 @@ c = conn.cursor()
 # create database table
 try:
 	c.execute('''	CREATE TABLE cards (
+					key integer primary key,
 					cardSet text,
 					name text,
 					type text,
@@ -66,11 +70,13 @@ except sqlite3.OperationalError:
 
 # card set declaration
 set = ["Basic", "Curse of Naxxramas", "Expert", "Goblins vs Gnomes", "Promotion", "Reward"]
+key = 1;
 
 # populate database
 for setIndex in range(0, len(set)):
 	for index in range (0, len(data[set[setIndex]])):
-		card = 	(	set[setIndex],
+		card = 	(	key,
+					set[setIndex],
 					GetValue(set[setIndex], index, "name"),
 					GetValue(set[setIndex], index, "type"),
 					GetValue(set[setIndex], index, "cost"),
@@ -89,11 +95,13 @@ for setIndex in range(0, len(set)):
 				)
 
 		try:
-			c.execute("INSERT INTO cards VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", card)
+			c.execute("INSERT INTO cards VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", card)
 					
 		except sqlite3.OperationalError:
 			print(traceback.format_exc())
 			conn.close()
+			
+		key += 1
 
 # commit all changes and close SQL connection
 conn.commit()
