@@ -41,7 +41,20 @@ for page in range(1,9):
 				cardName = cardName[cardName.find("-") + 1 : ]
 
 				# retrieve image into local directory
-				urllib.request.urlretrieve(cardURL, cwd + "\\" + cardName + ".png")
+				isExist = os.path.isfile(cwd + "\\" + cardName + ".png")
+				
+				num = 0
+				
+				# rename file if it exists
+				if isExist:
+					while isExist:
+						isExist = os.path.isfile(cwd + "\\" + cardName + str(num) + ".png")
+						num += 1
+						
+					urllib.request.urlretrieve(cardURL, cwd + "\\" + cardName + str(num) + ".png")
+				else:
+					urllib.request.urlretrieve(cardURL, cwd + "\\" + cardName + ".png")
+					
 				index1 = indexName2
 				
 			else:
