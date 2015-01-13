@@ -63,7 +63,8 @@ try:
 					faction text,
 					flavor text,
 					artist text,
-					collectible text
+					collectible text,
+					race text
 					)''')
 except sqlite3.OperationalError:
 	print(traceback.format_exc())				
@@ -91,11 +92,12 @@ for setIndex in range(0, len(set)):
 					GetValue(set[setIndex], index, "faction"),
 					GetValue(set[setIndex], index, "flavor"),
 					GetValue(set[setIndex], index, "artist"),
-					GetValue(set[setIndex], index, "collectible")
+					GetValue(set[setIndex], index, "collectible"),
+					GetValue(set[setIndex], index, "race")
 				)
 
 		try:
-			c.execute("INSERT INTO cards VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", card)
+			c.execute("INSERT INTO cards VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", card)
 					
 		except sqlite3.OperationalError:
 			print(traceback.format_exc())
