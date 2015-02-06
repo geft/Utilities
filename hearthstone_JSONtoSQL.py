@@ -2,6 +2,7 @@ import json
 import sqlite3
 import traceback
 import os
+import re
 
 # obtain key value from dict
 def GetValue (set, index, str):
@@ -14,8 +15,8 @@ def GetValue (set, index, str):
 		mechStr = ""
 		
 		# concatenate all mechanic strings
-		for x in range (0, len(data[set][index][str])):
-			mechStr = mechStr + data[set][index][str][x] + ","
+		for x in range (0, len(value)):
+			mechStr = mechStr + value[x] + ","
 		
 		# remove last comma
 		if mechStr[-1] == ",":
@@ -23,8 +24,12 @@ def GetValue (set, index, str):
 			
 		return mechStr
 	
+	# format card text
+	if str == "text":
+		value = re.sub(r'(<b>|</b>|<i>|</i>)|[$,.:#]', '', value)
+	
 	return value
-
+	
 # load JSON data and parse into a dict object
 jData = open('AllSets.json', 'r', encoding = 'utf-8')
 data = json.load(jData)
@@ -49,22 +54,22 @@ try:
 	c.execute('''	CREATE TABLE cards (
 					key integer primary key,
 					cardSet text,
-					name text,
+					id text,
+					name text collate nocase,
 					type text,
-					cost text,
-					attack text,
-					health text,
+					cost integer,
+					attack integer,
+					health integer,
 					mechanics text,
-					text text,
+					text text collate nocase,
 					playerClass text,
 					rarity text,
 					howToGet text,
 					howToGetGold text,
-					faction text,
 					flavor text,
 					artist text,
-					collectible text,
-					race text
+					collectible integer,
+					race text collate nocase
 					)''')
 except sqlite3.OperationalError:
 	print(traceback.format_exc())				
@@ -78,6 +83,7 @@ for setIndex in range(0, len(set)):
 	for index in range (0, len(data[set[setIndex]])):
 		card = 	(	key,
 					set[setIndex],
+					GetValue(set[setIndex], index, "id"),
 					GetValue(set[setIndex], index, "name"),
 					GetValue(set[setIndex], index, "type"),
 					GetValue(set[setIndex], index, "cost"),
@@ -89,7 +95,6 @@ for setIndex in range(0, len(set)):
 					GetValue(set[setIndex], index, "rarity"),
 					GetValue(set[setIndex], index, "howToGet"),
 					GetValue(set[setIndex], index, "howToGetGold"),
-					GetValue(set[setIndex], index, "faction"),
 					GetValue(set[setIndex], index, "flavor"),
 					GetValue(set[setIndex], index, "artist"),
 					GetValue(set[setIndex], index, "collectible"),
@@ -97,7 +102,8 @@ for setIndex in range(0, len(set)):
 				)
 
 		try:
-			c.execute("INSERT INTO cards VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", card)
+			if not (card[5] == 'NULL' or card[16] == 'NULL'):
+				c.execute("INSERT INTO cards VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", card)
 					
 		except sqlite3.OperationalError:
 			print(traceback.format_exc())
