@@ -31,6 +31,7 @@ def get_url(source, sub_id, sub_start, sub_end):
     file_start = str.index(source, sub_start, id_index) + len(sub_start)
     file_end = str.index(source, sub_end, file_start) + len(sub_end)
     file_url = source[file_start:file_end]
+    print(file_url)
     return "http://" + file_url
 
 

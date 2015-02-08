@@ -3,7 +3,7 @@ __author__ = 'Gerry'
 import hearthhead.source
 import hearthhead.scraper
 
-for page in range(413, 3000):
+for page in range(609, 3000):
     page = str(page)
     source = hearthhead.source.get_source_from_page(page)
     if hearthhead.source.is_source_valid(source):

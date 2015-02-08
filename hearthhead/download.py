@@ -22,6 +22,7 @@ def save(url, dir_name, file_name):
     dir_name = "C:\\Users\\Gerry\\Desktop\\" + dir_name[:-1]
     path = dir_name + "\\" + file_name
     os.makedirs(dir_name, exist_ok=True)
+    url = str.replace(url, " ", "%20")
     urllib.request.urlretrieve(url, path)
 
 
@@ -31,7 +32,7 @@ def reformat_sound_name(file_name):
     if "VO" in file_name:
         file_name = file_name[3:]
 
-    if "SFX" in file_name:
+    if "SFX" in file_name or "WoW" in file_name:
         file_name = file_name[4:]
 
     if "_01" in file_name or "_02" in file_name or "_03" in file_name:
