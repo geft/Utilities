@@ -28,10 +28,10 @@ def save(url, dir_name, file_name):
 def reformat_sound_name(file_name):
     file_name = str.replace(file_name, "EnterPlay", "Play")
 
-    if file_name[0:3] is "VO_":
+    if "VO" in file_name:
         file_name = file_name[3:]
 
-    if file_name[0:3] is "SFX":
+    if "SFX" in file_name:
         file_name = file_name[4:]
 
     if "_01" in file_name or "_02" in file_name or "_03" in file_name:
