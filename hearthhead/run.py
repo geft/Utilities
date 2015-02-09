@@ -34,9 +34,9 @@ for page in range(start, end):
                 print("Page " + page + " scraped")
             result = True
         except ValueError:
-                print("Error scraping page " + page)
-                result = True
-        except Exception:
+            print("Error scraping page " + page)
+            result = True
+        except:
             traceback.print_exc()
             print("Connection error. Retrying in 5 minutes...")
             time.sleep(300)

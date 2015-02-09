@@ -15,6 +15,5 @@ def get_source_from_page(page):
         print("Page " + page + " not found")
         return ""
 
-
     return source.decode("utf-8")
 

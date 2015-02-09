@@ -12,7 +12,7 @@ def start(source):
         if has_trigger(source):
             hearthhead.download.sound(get_sound_url(source, 3))
 
-            # hearthhead.download.animated(get_gif_url(source))
+        hearthhead.download.animated(get_gif_url(source))
 
     return 0
 
