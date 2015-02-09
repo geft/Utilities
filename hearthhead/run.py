@@ -19,7 +19,7 @@ def validate_start():
 
 
 start = input("Enter starting index: ")
-end = 3000
+end = 2277
 validate_start()
 
 for page in range(start, end):
