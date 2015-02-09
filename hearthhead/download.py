@@ -35,10 +35,9 @@ def reformat_sound_name(file_name):
     if "SFX" in file_name or "WoW" in file_name:
         file_name = file_name[4:]
 
-    if "_01." in file_name or "_02." in file_name or "_03." in file_name:
-        file_name = str.replace(file_name, "_01.", ".")
-        file_name = str.replace(file_name, "_02.", ".")
-        file_name = str.replace(file_name, "_03.", ".")
+    file_name = str.replace(file_name, "_01.", ".")
+    file_name = str.replace(file_name, "_02.", ".")
+    file_name = str.replace(file_name, "_03.", ".")
 
     if len(file_name) > 20:
         if "Attack" in file_name:
@@ -48,11 +47,8 @@ def reformat_sound_name(file_name):
         else:
             file_end = "Play"
 
-        if "t_" in file_name and "NEW1" in file_name:
-            file_name = file_name[:10] + file_end + ".ogg"
-        elif "t_" in file_name or "NEW1" in file_name or "DREAM" in file_name:
-            file_name = file_name[:9] + file_end + ".ogg"
-        else:
-            file_name = file_name[:8] + file_end + ".ogg"
+        first_index = str.index(file_name, "_") + 1
+        second_index = str.index(file_name, "_", first_index) + 1
+        file_name = file_name[:second_index] + file_end + ".ogg"
 
     return file_name
