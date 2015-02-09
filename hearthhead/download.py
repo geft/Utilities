@@ -50,7 +50,7 @@ def reformat_sound_name(file_name):
 
         if "t_" in file_name and "NEW1" in file_name:
             file_name = file_name[:10] + file_end + ".ogg"
-        if "t_" in file_name or "NEW1" in file_name:
+        elif "t_" in file_name or "NEW1" in file_name or "DREAM" in file_name:
             file_name = file_name[:9] + file_end + ".ogg"
         else:
             file_name = file_name[:8] + file_end + ".ogg"
