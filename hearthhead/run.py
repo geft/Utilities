@@ -22,7 +22,6 @@ start = input("Enter starting index: ")
 end = 3000
 validate_start()
 
-
 for page in range(start, end):
     page = str(page)
 
@@ -33,7 +32,7 @@ for page in range(start, end):
             if hearthhead.source.is_source_valid(source):
                 hearthhead.scraper.start(source)
                 print("Page " + page + " scraped")
-                result = True
+            result = True
         except ValueError:
                 print("Error scraping page " + page)
         except Exception:
