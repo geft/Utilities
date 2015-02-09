@@ -21,24 +21,20 @@ start = input("Enter starting index: ")
 end = 3000
 validate_start()
 
+
 for page in range(start, end):
     page = str(page)
 
-    source = None
-    while source is None:
+    result = None
+    while result is None:
         try:
             source = hearthhead.source.get_source_from_page(page)
-        except:
-            time.sleep(300)
-
-    if hearthhead.source.is_source_valid(source):
-        result = None
-        while result is None:
-            try:
-                result = hearthhead.scraper.start(source)
-            except ValueError:
+            if hearthhead.source.is_source_valid(source):
+                hearthhead.scraper.start(source)
+                print("Page " + page + " scraped")
+                result = True
+        except ValueError:
                 print("Error scraping page " + page)
-            except Exception:
-                time.sleep(300)
-
-        print("Page " + page + " scraped")
+        except Exception:
+            print("Connection error. Retrying in 5 minutes...")
+            time.sleep(300)
