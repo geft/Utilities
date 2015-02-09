@@ -25,6 +25,7 @@ def save_to_disk(path, url):
         try:
             result = urllib.request.urlretrieve(url, path)
         except urllib.error.URLError:
+            print("Failed to save images. Waiting 5 minutes to retry...")
             time.sleep(300)
 
 

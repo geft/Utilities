@@ -19,6 +19,7 @@ def get_source_from_page(page):
             print("Page " + page + " not found")
             return ""
         except urllib.error.URLError:
+            print("Failed to retrieve source code. Waiting 5 minutes to retry...")
             time.sleep(300)
 
 
