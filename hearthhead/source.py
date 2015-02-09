@@ -1,8 +1,6 @@
 __author__ = 'Gerry'
 
 import urllib.request
-import urllib.error
-import time
 
 
 def is_source_valid(source):
@@ -10,18 +8,6 @@ def is_source_valid(source):
 
 
 def get_source_from_page(page):
-    source = None
-
-    while source is None:
-        try:
-            source = urllib.request.urlopen("http://www.hearthhead.com/card=" + page).read()
-        except urllib.error.HTTPError:
-            print("Page " + page + " not found")
-            return ""
-        except urllib.error.URLError:
-            print("Failed to retrieve source code. Waiting 5 minutes to retry...")
-            time.sleep(300)
-
-
+    source = urllib.request.urlopen("http://www.hearthhead.com/card=" + page).read()
     return source.decode("utf-8")
 

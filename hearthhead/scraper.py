@@ -14,6 +14,8 @@ def start(source):
 
             # hearthhead.download.animated(get_gif_url(source))
 
+    return 0
+
 
 def get_sound_url(source, num):
     sub_id = "cardsound" + str(num)

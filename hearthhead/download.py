@@ -3,7 +3,6 @@ __author__ = 'Gerry'
 import urllib.request
 import urllib.error
 import os
-import time
 
 
 def sound(url):
@@ -19,22 +18,12 @@ def animated(url):
     save(url, dir_name, file_name[:-12] + ".gif")
 
 
-def save_to_disk(path, url):
-    result = None
-    while result is None:
-        try:
-            result = urllib.request.urlretrieve(url, path)
-        except urllib.error.URLError:
-            print("Failed to save images. Waiting 5 minutes to retry...")
-            time.sleep(300)
-
-
 def save(url, dir_name, file_name):
     dir_name = "C:\\Users\\Gerry\\Desktop\\" + dir_name[:-1]
     path = dir_name + "\\" + file_name
     os.makedirs(dir_name, exist_ok=True)
     url = str.replace(url, " ", "%20")
-    save_to_disk(path, url)
+    urllib.request.urlretrieve(url, path)
 
 
 def trim_sound_index(file_name):

@@ -1,6 +1,7 @@
 __author__ = 'Gerry'
 
 import sys
+import time
 
 import hearthhead.source
 import hearthhead.scraper
@@ -22,10 +23,22 @@ validate_start()
 
 for page in range(start, end):
     page = str(page)
-    source = hearthhead.source.get_source_from_page(page)
-    if hearthhead.source.is_source_valid(source):
+
+    source = None
+    while source is None:
         try:
-            hearthhead.scraper.start(source)
-        except ValueError:
-            print("Error scraping page " + page)
+            source = hearthhead.source.get_source_from_page(page)
+        except:
+            time.sleep(300)
+
+    if hearthhead.source.is_source_valid(source):
+        result = None
+        while result is None:
+            try:
+                result = hearthhead.scraper.start(source)
+            except ValueError:
+                print("Error scraping page " + page)
+            except Exception:
+                time.sleep(300)
+
         print("Page " + page + " scraped")
