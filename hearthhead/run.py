@@ -2,6 +2,7 @@ __author__ = 'Gerry'
 
 import sys
 import time
+import traceback
 
 import hearthhead.source
 import hearthhead.scraper
@@ -36,5 +37,6 @@ for page in range(start, end):
         except ValueError:
                 print("Error scraping page " + page)
         except Exception:
+            traceback.print_exc()
             print("Connection error. Retrying in 5 minutes...")
             time.sleep(300)
