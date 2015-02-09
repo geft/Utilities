@@ -9,7 +9,10 @@ def start(source):
         hearthhead.download.sound(get_sound_url(source, 1))
         hearthhead.download.sound(get_sound_url(source, 2))
 
-    hearthhead.download.animated(get_gif_url(source))
+        if has_trigger(source):
+            hearthhead.download.sound(get_sound_url(source, 3))
+
+            # hearthhead.download.animated(get_gif_url(source))
 
 
 def get_sound_url(source, num):
@@ -37,6 +40,15 @@ def get_url(source, sub_id, sub_start, sub_end):
 
 def has_sound(source):
     sub = "cardsound"
+    try:
+        str.index(source, sub)
+    except ValueError:
+        return False
+    return True
+
+
+def has_trigger(source):
+    sub = "cardsound3"
     try:
         str.index(source, sub)
     except ValueError:

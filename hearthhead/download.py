@@ -8,7 +8,6 @@ def sound(url):
     dir_name = "sounds/"
     file_name = url[str.index(url, dir_name) + len(dir_name):]
     file_name = reformat_sound_name(file_name)
-
     save(url, dir_name, file_name)
 
 
@@ -26,29 +25,36 @@ def save(url, dir_name, file_name):
     urllib.request.urlretrieve(url, path)
 
 
-def reformat_sound_name(file_name):
-    file_name = str.replace(file_name, "EnterPlay", "Play")
+def trim_sound_index(file_name):
+    file_name = str.replace(file_name, "_01.", ".")
+    file_name = str.replace(file_name, "_02.", ".")
+    file_name = str.replace(file_name, "_03.", ".")
+    file_name = str.replace(file_name, "_04.", ".")
+    return file_name
 
+
+def reformat_sound_name(file_name):
     if "VO" in file_name:
         file_name = file_name[3:]
 
     if "SFX" in file_name or "WoW" in file_name:
         file_name = file_name[4:]
 
-    file_name = str.replace(file_name, "_01.", ".")
-    file_name = str.replace(file_name, "_02.", ".")
-    file_name = str.replace(file_name, "_03.", ".")
+    file_name = trim_sound_index(file_name)
 
-    if len(file_name) > 20:
-        if "Attack" in file_name:
-            file_end = "Attack"
-        elif "Death" in file_name:
-            file_end = "Death"
-        else:
-            file_end = "Play"
+    if "Attack" in file_name:
+        file_end = "Attack"
+    elif "Death" in file_name:
+        file_end = "Death"
+    elif "Trigger" in file_name:
+        file_end = "Trigger"
+    elif "Play" in file_name:
+        file_end = "Play"
+    else:
+        file_end = "Unknown"
 
-        first_index = str.index(file_name, "_") + 1
-        second_index = str.index(file_name, "_", first_index) + 1
-        file_name = file_name[:second_index] + file_end + ".ogg"
+    first_index = str.index(file_name, "_") + 1
+    second_index = str.index(file_name, "_", first_index) + 1
+    file_name = file_name[:second_index] + file_end + ".ogg"
 
     return file_name
