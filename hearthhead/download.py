@@ -22,7 +22,7 @@ def save(url, dir_name, file_name):
     dir_name = "C:\\Users\\Gerry\\Desktop\\" + dir_name[:-1]
     path = dir_name + "\\" + file_name
     os.makedirs(dir_name, exist_ok=True)
-    url = str.replace(url, " ", "_")
+    url = str.replace(url, " ", "%20")
     urllib.request.urlretrieve(url, path)
 
 
@@ -54,7 +54,12 @@ def reformat_sound_name(file_name):
     else:
         file_end = "Unknown"
 
-    first_index = str.index(file_name, "_") + 1
+    space = "%20"
+    if space in file_name:
+        first_index = str.index(file_name, space) + len(space)
+    else:
+        first_index = str.index(file_name, "_") + 1
+
     second_index = str.index(file_name, "_", first_index) + 1
     file_name = file_name[:second_index] + file_end + ".ogg"
 
