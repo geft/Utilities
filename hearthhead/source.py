@@ -20,7 +20,6 @@ def get_source_from_page(page):
             return ""
         except urllib.error.URLError:
             time.sleep(300)
-            pass
 
 
     return source.decode("utf-8")
