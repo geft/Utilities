@@ -47,7 +47,7 @@ def reformat_sound_name(file_name):
         file_end = "Attack"
     elif "_Death" in file_name:
         file_end = "Death"
-    elif "_Trigger" in file_name:
+    elif "_Trigger" in file_name or "_Other" in file_name:
         file_end = "Trigger"
     elif "_Play" in file_name or "_EnterPlay" in file_name:
         file_end = "Play"

@@ -4,15 +4,11 @@ import hearthhead.download
 
 
 def start(source):
-    if has_sound(source):
-        hearthhead.download.sound(get_sound_url(source, 0))
-        hearthhead.download.sound(get_sound_url(source, 1))
-        hearthhead.download.sound(get_sound_url(source, 2))
+    for index in range(0, 4):
+        if has_sound(source, index):
+            hearthhead.download.sound(get_sound_url(source, index))
 
-        if has_trigger(source):
-            hearthhead.download.sound(get_sound_url(source, 3))
-
-        hearthhead.download.animated(get_gif_url(source))
+    hearthhead.download.animated(get_gif_url(source))
 
     return 0
 
@@ -40,17 +36,8 @@ def get_url(source, sub_id, sub_start, sub_end):
     return "http://" + file_url
 
 
-def has_sound(source):
-    sub = "cardsound"
-    try:
-        str.index(source, sub)
-    except ValueError:
-        return False
-    return True
-
-
-def has_trigger(source):
-    sub = "cardsound3"
+def has_sound(source, index):
+    sub = "cardsound" + str(index)
     try:
         str.index(source, sub)
     except ValueError:
