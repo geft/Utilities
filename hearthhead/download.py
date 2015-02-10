@@ -27,11 +27,25 @@ def save(url, dir_name, file_name):
 
 
 def trim_sound_index(file_name):
-    file_name = str.replace(file_name, "_01.", ".")
-    file_name = str.replace(file_name, "_02.", ".")
-    file_name = str.replace(file_name, "_03.", ".")
-    file_name = str.replace(file_name, "_04.", ".")
+    if file_name[-7] is "_":
+        file_name = file_name[:-7]
     return file_name
+
+
+def get_file_end(file_name):
+    str.replace(file_name, "_effect", "_Trigger")
+    str.replace(file_name, "_EnterPlay", "_Play")
+    index = str.rfind(file_name, "_") + 1
+    return file_name[index:]
+
+
+def get_first_index(file_name):
+    space = "%20"
+    if space in file_name:
+        first_index = str.index(file_name, space) + len(space)
+    else:
+        first_index = str.index(file_name, "_") + 1
+    return first_index
 
 
 def reformat_sound_name(file_name):
@@ -42,27 +56,11 @@ def reformat_sound_name(file_name):
         file_name = file_name[4:]
 
     file_name = trim_sound_index(file_name)
+    file_end = get_file_end(file_name)
 
-    if "_Attack" in file_name:
-        file_end = "Attack"
-    elif "_Death" in file_name:
-        file_end = "Death"
-    elif "_Trigger" in file_name or "_effect" in file_name:
-        file_end = "Trigger"
-    elif "_Play" in file_name or "_EnterPlay" in file_name:
-        file_end = "Play"
-    elif "_Cast" in file_name:
-        file_end = "Cast"
-    else:
-        file_end = "Unknown"
-
-    space = "%20"
-    if space in file_name:
-        first_index = str.index(file_name, space) + len(space)
-    else:
-        first_index = str.index(file_name, "_") + 1
-
+    first_index = get_first_index(file_name)
     second_index = str.index(file_name, "_", first_index) + 1
+
     file_name = file_name[:second_index] + file_end + ".ogg"
 
     return file_name
