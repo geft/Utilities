@@ -33,8 +33,8 @@ def trim_sound_index(file_name):
 
 
 def get_file_end(file_name):
-    str.replace(file_name, "_effect", "_Trigger")
-    str.replace(file_name, "_EnterPlay", "_Play")
+    file_name = str.replace(file_name, "_effect", "_Trigger")
+    file_name = str.replace(file_name, "_EnterPlay", "_Play")
     index = str.rfind(file_name, "_") + 1
     return file_name[index:]
 
