@@ -27,8 +27,9 @@ def save(url, dir_name, file_name):
 
 
 def trim_sound_index(file_name):
-    if file_name[-7] is "_":
-        file_name = file_name[:-7]
+    for index in range(1, 6):
+        file_name = str.replace(file_name, "_0" + str(index), "")
+        file_name = str.replace(file_name, str(index) + ".ogg", ".ogg")
     return file_name
 
 
@@ -61,6 +62,6 @@ def reformat_sound_name(file_name):
     first_index = get_first_index(file_name)
     second_index = str.index(file_name, "_", first_index) + 1
 
-    file_name = file_name[:second_index] + file_end + ".ogg"
+    file_name = file_name[:second_index] + file_end
 
     return file_name
