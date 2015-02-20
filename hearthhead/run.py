@@ -2,7 +2,7 @@ __author__ = 'Gerry'
 
 import sys
 import time
-import traceback
+import urllib.error
 
 import hearthhead.source
 import hearthhead.scraper
@@ -22,6 +22,12 @@ start = input("Enter starting index: ")
 end = 3000
 validate_start()
 
+
+def reconnect():
+    print("Connection error. Retrying in 5 minutes...")
+    time.sleep(300)
+
+
 for page in range(start, end):
     page = str(page)
 
@@ -36,7 +42,7 @@ for page in range(start, end):
         except ValueError:
             print("Error scraping page " + page)
             result = True
-        except:
-            traceback.print_exc()
-            print("Connection error. Retrying in 5 minutes...")
-            time.sleep(300)
+        except TimeoutError:
+            reconnect()
+        except urllib.error.URLError:
+            reconnect()

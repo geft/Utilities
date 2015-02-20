@@ -28,7 +28,7 @@ def save(url, dir_name, file_name):
 
 def trim_sound_index(file_name):
     for index in range(1, 6):
-        file_name = str.replace(file_name, "_0" + str(index), "")
+        file_name = str.replace(file_name, "_0" + str(index) + ".", ".")
         file_name = str.replace(file_name, str(index) + ".ogg", ".ogg")
     return file_name
 
