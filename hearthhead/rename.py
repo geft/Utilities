@@ -23,7 +23,7 @@ def get_dst(src_dir):
     path = os.path.join(os.path.dirname(src_dir), "renamed_sounds")
 
     if os.path.isdir(path):
-        os.remove(path)
+        shutil.rmtree(path)
 
     os.makedirs(path)
     return path

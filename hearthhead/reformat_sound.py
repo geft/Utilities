@@ -6,7 +6,8 @@ def reformat_sound_name(file_name):
     file_name = remove_tags(file_name)
     file_name = replace_keywords(file_name)
     file_name = remove_sound_index(file_name)
-    file_name = remove_card_name(file_name)
+    file_name = remove_card_name_at_end(file_name)
+    file_name = remove_card_name_at_center(file_name)
 
     file_end = get_file_end(file_name)
     file_start = get_file_start(file_name)
@@ -36,12 +37,23 @@ def get_file_start(file_name):
     return file_start
 
 
-def remove_card_name(file_name):
+def remove_card_name_at_center(file_name):
     index_count = get_underscore_count(file_name)
     middle_name = get_middle_name(file_name)
 
     if index_count is 3 and len(middle_name) > 6:
         file_name = str.replace(file_name, middle_name + "_", "")
+
+    return file_name
+
+
+def remove_card_name_at_end(file_name):
+    start_index = str.rfind(file_name, "_")
+    end_index = str.find(file_name, ".ogg")
+    name = file_name[start_index:end_index]
+
+    if len(name) > 7:
+        file_name = str.replace(file_name, name, "")
 
     return file_name
 
