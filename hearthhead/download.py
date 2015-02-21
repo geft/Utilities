@@ -60,7 +60,11 @@ def reformat_sound_name(file_name):
     file_end = get_file_end(file_name)
 
     first_index = get_first_index(file_name)
-    second_index = str.index(file_name, "_", first_index) + 1
+
+    try:
+        second_index = str.index(file_name, "_", first_index) + 1
+    except ValueError:
+        second_index = len(file_name)
 
     file_name = file_name[:second_index] + file_end
 

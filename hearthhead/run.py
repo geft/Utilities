@@ -2,6 +2,7 @@ __author__ = 'Gerry'
 
 import sys
 import time
+import traceback
 import urllib.error
 
 import hearthhead.source
@@ -40,8 +41,8 @@ for page in range(start, end):
                 print("Page " + page + " scraped")
             result = True
         except ValueError:
-            print("Error scraping page " + page)
-            result = True
+            print(traceback.format_exc())
+            exit()
         except TimeoutError:
             reconnect()
         except urllib.error.URLError:
