@@ -1,5 +1,3 @@
-from hearthhead.reformat_sound import reformat_sound_name
-
 __author__ = 'Gerry'
 
 import urllib.request
@@ -10,7 +8,6 @@ import os
 def sound(url):
     dir_name = "sounds/"
     file_name = url[str.index(url, dir_name) + len(dir_name):]
-    file_name = reformat_sound_name(file_name)
     save(url, dir_name, file_name)
 
 

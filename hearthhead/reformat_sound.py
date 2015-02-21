@@ -1,3 +1,6 @@
+__author__ = 'Gerry'
+
+
 def reformat_sound_name(file_name):
     file_name = remove_space(file_name)
     file_name = remove_tags(file_name)

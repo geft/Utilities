@@ -4,6 +4,7 @@ import sys
 import time
 import traceback
 import urllib.error
+import http.client
 
 import hearthhead.source
 import hearthhead.scraper
@@ -20,7 +21,7 @@ def validate_start():
 
 
 start = input("Enter starting index: ")
-end = 300
+end = 3000
 validate_start()
 
 
@@ -43,6 +44,8 @@ for page in range(start, end):
         except ValueError:
             print(traceback.format_exc())
             exit()
+        except http.client.IncompleteRead:
+            pass
         except TimeoutError:
             reconnect()
         except urllib.error.URLError:

@@ -1,3 +1,5 @@
+__author__ = 'Gerry'
+
 import hearthhead.download
 
 
