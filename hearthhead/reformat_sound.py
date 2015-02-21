@@ -1,15 +1,39 @@
 def reformat_sound_name(file_name):
+    file_name = remove_space(file_name)
     file_name = remove_tags(file_name)
-    file_name = trim_sound_index(file_name)
-    file_end = get_file_end(file_name)
+    file_name = remove_sound_index(file_name)
+    file_name = remove_card_name(file_name)
 
-    first_index = get_first_index(file_name)
-    second_index = get_underscore_index(file_name, first_index)
-    file_name = file_name[:second_index + 1] + file_end
+    return file_name
 
-    third_index = get_underscore_index(file_name, second_index)
-    if third_index != len(file_name):
-        file_name = file_name[:third_index] + ".ogg"
+
+def remove_card_name(file_name):
+    index_count = get_underscore_count(file_name)
+
+    if index_count is 3:
+        last_index = str.rfind(file_name, "_")
+        file_name = file_name[:last_index] + ".ogg"
+
+    return file_name
+
+
+def get_underscore_count(file_name):
+    count = 0
+    start_index = 0
+
+    while get_underscore_index(file_name, start_index) is not None:
+        count += 1
+        start_index = get_underscore_index(file_name, start_index) + 1
+
+    return count
+
+
+def remove_space(file_name):
+    if " " in file_name:
+        space_index = str.index(file_name, " ")
+        next_underscore_index = get_underscore_index(file_name, space_index)
+        substring = file_name[space_index:next_underscore_index]
+        file_name = str.replace(file_name, substring, "")
 
     return file_name
 
@@ -22,8 +46,8 @@ def remove_tags(file_name):
     return file_name
 
 
-def trim_sound_index(file_name):
-    for index in range(1, 6):
+def remove_sound_index(file_name):
+    for index in range(0, 6):
         file_name = str.replace(file_name, "_0" + str(index) + ".", ".")
         file_name = str.replace(file_name, str(index) + ".ogg", ".ogg")
     return file_name
@@ -36,18 +60,10 @@ def get_file_end(file_name):
     return file_name[index:]
 
 
-def get_first_index(file_name):
-    space = "%20"
-    if space in file_name:
-        first_index = str.index(file_name, space) + len(space)
-    else:
-        first_index = str.index(file_name, "_") + 1
-    return first_index
-
-
 def get_underscore_index(file_name, start_index):
+    start_index += 1
     try:
         index = str.index(file_name, "_", start_index)
     except ValueError:
-        index = len(file_name)
+        index = None
     return index
