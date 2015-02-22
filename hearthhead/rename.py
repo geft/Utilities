@@ -15,6 +15,8 @@ def get_src():
 
         if os.path.isdir(path):
             result = True
+        else:
+            print("Invalid directory")
 
     return path
 
@@ -22,10 +24,12 @@ def get_src():
 def get_dst(src_dir):
     path = os.path.join(os.path.dirname(src_dir), "renamed_sounds")
 
-    if os.path.isdir(path):
-        shutil.rmtree(path)
+    try:
+        os.makedirs(path)
+    except FileExistsError:
+        print("A folder called renamed_sounds already exists in the parent directory")
+        exit()
 
-    os.makedirs(path)
     return path
 
 

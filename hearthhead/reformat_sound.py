@@ -4,6 +4,10 @@ __author__ = 'Gerry'
 def reformat_sound_name(file_name):
     file_name = remove_space(file_name)
     file_name = remove_tags(file_name)
+
+    if str.startswith(file_name, "EX1_110"):
+        pass
+
     file_name = replace_keywords(file_name)
     file_name = remove_sound_index(file_name)
     file_name = remove_card_name_at_end(file_name)
@@ -26,7 +30,7 @@ def get_file_start(file_name):
 
     try:
         second_index = get_underscore_index(file_name, first_index + 1)
-    except ValueError:
+    except TypeError:
         second_index = None
 
     if second_index is None:
@@ -39,9 +43,13 @@ def get_file_start(file_name):
 
 def remove_card_name_at_center(file_name):
     index_count = get_underscore_count(file_name)
-    middle_name = get_middle_name(file_name)
 
-    if index_count is 3 and len(middle_name) > 6:
+    try:
+        middle_name = get_middle_name(file_name)
+    except TypeError:
+        middle_name = None
+
+    if index_count is 4:
         file_name = str.replace(file_name, middle_name + "_", "")
 
     return file_name
@@ -52,7 +60,7 @@ def remove_card_name_at_end(file_name):
     end_index = str.find(file_name, ".ogg")
     name = file_name[start_index:end_index]
 
-    if len(name) > 7:
+    if len(name) > 8:
         file_name = str.replace(file_name, name, "")
 
     return file_name
