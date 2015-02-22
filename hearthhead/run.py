@@ -21,7 +21,7 @@ def validate_start():
 
 
 start = input("Enter starting index: ")
-end = 3000
+end = 2500
 validate_start()
 
 
@@ -50,3 +50,5 @@ for page in range(start, end):
             reconnect()
         except urllib.error.URLError:
             reconnect()
+        except Exception:
+            pass
