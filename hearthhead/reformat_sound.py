@@ -1,3 +1,5 @@
+from hearthhead.edge_cases import rename_edge_cases
+
 __author__ = 'Gerry'
 
 
@@ -5,10 +7,8 @@ def reformat_sound_name(file_name):
     file_name = remove_space(file_name)
     file_name = remove_tags(file_name)
 
-    if str.startswith(file_name, "EX1_110"):
-        pass
-
     file_name = replace_keywords(file_name)
+    file_name = rename_edge_cases(file_name)
     file_name = remove_sound_index(file_name)
     file_name = remove_card_name_at_end(file_name)
     file_name = remove_card_name_at_center(file_name)
@@ -22,6 +22,9 @@ def reformat_sound_name(file_name):
 def replace_keywords(file_name):
     file_name = str.replace(file_name, "_effect", "_Trigger")
     file_name = str.replace(file_name, "_EnterPlay", "_Play")
+    file_name = str.replace(file_name, "_CUSTOM", "_Custom")
+    file_name = str.replace(file_name, "ALT", "Alternate")
+    file_name = str.replace(file_name, "Alt.", "Alternate.")
     return file_name
 
 
@@ -60,7 +63,7 @@ def remove_card_name_at_end(file_name):
     end_index = str.find(file_name, ".ogg")
     name = file_name[start_index:end_index]
 
-    if len(name) > 8:
+    if len(name) > 8 and "Alternate" not in file_name:
         file_name = str.replace(file_name, name, "")
 
     return file_name
@@ -109,7 +112,7 @@ def remove_tags(file_name):
 
 
 def remove_sound_index(file_name):
-    for index in range(0, 6):
+    for index in range(0, 8):
         file_name = str.replace(file_name, "_0" + str(index) + ".", ".")
         file_name = str.replace(file_name, str(index) + ".ogg", ".ogg")
     return file_name

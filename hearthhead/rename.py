@@ -23,12 +23,14 @@ def get_src():
 
 def get_dst(src_dir):
     path = os.path.join(os.path.dirname(src_dir), "renamed_sounds")
+    shutil.rmtree(path)
 
-    try:
-        os.makedirs(path)
-    except FileExistsError:
-        print("A folder called renamed_sounds already exists in the parent directory")
-        exit()
+    while True:
+        try:
+            os.makedirs(path)
+            break
+        except PermissionError:
+            print("A folder called renamed_sounds already exists in the parent directory")
 
     return path
 
@@ -42,5 +44,7 @@ for file_name in file_list:
     new_file_name = hearthhead.reformat_sound.reformat_sound_name(file_name)
     dst_path = os.path.join(dst, new_file_name)
 
-    if os.path.isfile(src_path):
+    if "tutorial" in new_file_name.lower():
+        pass
+    elif os.path.isfile(src_path):
         shutil.copy(src_path, dst_path)
