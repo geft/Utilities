@@ -25,6 +25,7 @@ def replace_keywords(file_name):
     file_name = str.replace(file_name, "_CUSTOM", "_Custom")
     file_name = str.replace(file_name, "ALT", "Alternate")
     file_name = str.replace(file_name, "Alt.", "Alternate.")
+    file_name = str.replace(file_name, "DEATH", "Death")
     return file_name
 
 

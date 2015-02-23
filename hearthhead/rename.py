@@ -23,7 +23,9 @@ def get_src():
 
 def get_dst(src_dir):
     path = os.path.join(os.path.dirname(src_dir), "renamed_sounds")
-    shutil.rmtree(path)
+
+    if os.path.isdir(path):
+        shutil.rmtree(path)
 
     while True:
         try:
