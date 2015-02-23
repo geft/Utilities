@@ -22,7 +22,7 @@ def get_src():
 
 
 def get_dst(src_dir):
-    path = os.path.join(os.path.dirname(src_dir), "renamed_sounds")
+    path = os.path.join(os.path.dirname(src_dir), "card_sounds")
 
     if os.path.isdir(path):
         shutil.rmtree(path)
