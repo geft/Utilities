@@ -32,7 +32,7 @@ def get_dst(src_dir):
             os.makedirs(path)
             break
         except PermissionError:
-            print("A folder called renamed_sounds already exists in the parent directory")
+            pass
 
     return path
 
