@@ -4,9 +4,7 @@ __author__ = 'Gerry'
 
 
 def reformat_sound_name(file_name):
-    file_name = remove_space(file_name)
     file_name = remove_tags(file_name)
-
     file_name = replace_keywords(file_name)
     file_name = rename_edge_cases(file_name)
     file_name = remove_sound_index(file_name)
@@ -64,7 +62,7 @@ def remove_card_name_at_end(file_name):
     end_index = str.find(file_name, ".ogg")
     name = file_name[start_index:end_index]
 
-    if len(name) > 8 and "Alternate" not in file_name:
+    if len(name) > 8 and "Alternate" not in file_name and "Alliance" not in file_name:
         file_name = str.replace(file_name, name, "")
 
     return file_name
@@ -92,16 +90,6 @@ def get_underscore_count(file_name):
         start_index = get_underscore_index(file_name, start_index) + 1
 
     return count
-
-
-def remove_space(file_name):
-    if " " in file_name:
-        space_index = str.index(file_name, " ")
-        next_underscore_index = get_underscore_index(file_name, space_index)
-        substring = file_name[space_index:next_underscore_index]
-        file_name = str.replace(file_name, substring, "")
-
-    return file_name
 
 
 def remove_tags(file_name):

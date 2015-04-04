@@ -46,7 +46,5 @@ for file_name in file_list:
     new_file_name = hearthhead.reformat_sound.reformat_sound_name(file_name)
     dst_path = os.path.join(dst, new_file_name)
 
-    if "tutorial" in new_file_name.lower():
-        pass
-    elif os.path.isfile(src_path):
+    if os.path.isfile(src_path):
         shutil.copy(src_path, dst_path)
