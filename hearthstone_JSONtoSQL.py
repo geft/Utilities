@@ -4,6 +4,7 @@ import traceback
 import os
 import re
 
+
 # obtain key value from dict
 def GetValue(set, index, str):
     try:
@@ -69,7 +70,7 @@ try:
 					flavor TEXT,
 					artist TEXT,
 					collectible INTEGER,
-					race TEXT COLLATE nocase
+					race TEXT COLLATE nocase,
 					collection BOOLEAN
 					)''')
 except sqlite3.OperationalError:
@@ -109,7 +110,7 @@ for setIndex in range(0, len(cardSet)):
                     GetValue(cardSet[setIndex], index, "artist"),
                     GetValue(cardSet[setIndex], index, "collectible"),
                     GetValue(cardSet[setIndex], index, "race"),
-                    1
+                    "1"
         )
 
         try:
