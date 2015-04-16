@@ -70,6 +70,7 @@ try:
 					artist TEXT,
 					collectible INTEGER,
 					race TEXT COLLATE nocase
+					collection BOOLEAN
 					)''')
 except sqlite3.OperationalError:
     print(traceback.format_exc())
@@ -107,12 +108,13 @@ for setIndex in range(0, len(cardSet)):
                     GetValue(cardSet[setIndex], index, "flavor"),
                     GetValue(cardSet[setIndex], index, "artist"),
                     GetValue(cardSet[setIndex], index, "collectible"),
-                    GetValue(cardSet[setIndex], index, "race")
+                    GetValue(cardSet[setIndex], index, "race"),
+                    1
         )
 
         try:
             if not (card[5] == 'NULL' or card[16] == 'NULL'):
-                c.execute("INSERT INTO cards VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", card)
+                c.execute("INSERT INTO cards VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", card)
 
         except sqlite3.OperationalError:
             print(traceback.format_exc())
