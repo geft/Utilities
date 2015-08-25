@@ -5,15 +5,15 @@ import os
 import re
 
 site_root = "http://www.hearthpwn.com"
-site_url = "http://www.hearthpwn.com/cards?display=1&filter-set=102&filter-unreleased=1&page="
-page_index_end = 3
+site_url = "http://www.hearthpwn.com/cards?display=1&filter-set=103&filter-unreleased=1&page="
+page_index_end = 2
 
 page_pattern = 'manual-data-link\" href=\"(.*?)\"'
 # card_name_pattern = '\[card\](.*?)\[/card\]'
 card_name_pattern = '<a href=\"/cards/\d\d\d\d\d-(.*?)\" rel=\"up\"'
 image_pattern = 'data-imageurl=\"(.*?.png)\"'
-# video_pattern = 'data-animationurl=\"(.*?webm)\"'
-video_pattern = 'data-gifurl=\"(.*?gif)\"'
+video_pattern = 'data-animationurl=\"(.*?webm)\"'
+# video_pattern = 'data-gifurl=\"(.*?gif)\"'
 
 path = "C:\\Users\\Gerry\\Desktop\\image\\"
 path_video = "C:\\Users\\Gerry\\Desktop\\video\\"
@@ -63,7 +63,7 @@ def download_image(name, url):
 
 def download_video(name, url):
     if url and not url.endswith(".png"):
-        indexed_path = get_indexed_path(path_video + name, ".gif")
+        indexed_path = get_indexed_path(path_video + name, ".webm")
         urllib.request.urlretrieve(url, indexed_path)
         print("Downloaded animation: " + name)
 
@@ -71,17 +71,19 @@ def download_video(name, url):
 check_directory(path)
 check_directory(path_video)
 
-for page_index in range(1, page_index_end + 1):
+for page_index in range(2, page_index_end + 1):
     site = get_url_content(site_url + str(page_index))
 
+    # change this to start from a specific card on the page
     num = 0
+
     link = get_pattern(page_pattern, site, num)
 
     while link is not None:
         page = get_url_content(site_root + link)
 
         card_name = get_pattern(card_name_pattern, page)
-        # download_image(card_name, get_pattern(image_pattern, page))
+        download_image(card_name, get_pattern(image_pattern, page))
         download_video(card_name, get_pattern(video_pattern, page))
 
         num += 1

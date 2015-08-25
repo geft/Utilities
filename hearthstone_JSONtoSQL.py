@@ -86,7 +86,9 @@ cardSet = ["Basic",
            "Goblins vs Gnomes",
            "Promotion",
            "Reward",
-           "System"]
+           "System",
+           "Tavern Brawl",
+           "The Grand Tournament"]
 key = 1
 
 # populate database
