@@ -55,6 +55,19 @@ def rename_edge_cases(file_name):
     file_name = remove_keyword_on_condition(file_name, "EX1_158t", " Treant")
     file_name = remove_keyword_on_condition(file_name, "EX1_573t", " Treant")
     file_name = remove_keyword_on_condition(file_name, "EX1_531", "_1")
+    file_name = remove_keyword_on_condition(file_name, "AT_036", "_Alternate1_08")
+    file_name = remove_keyword_on_condition(file_name, "AT_036", "1_05")
+    file_name = remove_keyword_on_condition(file_name, "AT_081", "1_02")
+    file_name = remove_keyword_on_condition(file_name, "AT_087", "1_02")
+    file_name = remove_keyword_on_condition(file_name, "AT_093", "1_04")
+    file_name = remove_keyword_on_condition(file_name, "AT_098", "1_02")
+    file_name = remove_keyword_on_condition(file_name, "AT_100", "1_04")
+    file_name = remove_keyword_on_condition(file_name, "AT_110", "1_04")
+    file_name = remove_keyword_on_condition(file_name, "AT_111", "1_02")
+    file_name = remove_keyword_on_condition(file_name, "AT_114", "1_02")
+    file_name = remove_keyword_on_condition(file_name, "AT_124", "2_03")
+    file_name = remove_keyword_on_condition(file_name, "AT_131", "1_02")
+    file_name = remove_keyword_on_condition(file_name, "AT_133", "1_03")
 
     if "Sylvanas" in file_name:
         file_name = str.replace(file_name, "Sylvanas", "EX1_016")
@@ -116,5 +129,17 @@ def rename_edge_cases(file_name):
         file_name = str.replace(file_name, "Pegasus_Stinger_Undead1", "Stinger_Undead")
         file_name = str.replace(file_name, "Pegasus_Stinger_War", "Stinger_War")
         file_name = str.replace(file_name, "Pegasus_Stinger_Lesser_Villain", "Stinger_Villain")
+
+    if "AT_027_JARAXXUS" in file_name:
+        file_name = str.replace(file_name, "AT_027_JARAXXUS", "AT_027_Jaraxxus")
+
+    if "PLAY" in file_name:
+        file_name = str.replace(file_name, "PLAY", "Play")
+    elif "ATTACK" in file_name:
+        file_name = str.replace(file_name, "ATTACK", "Attack")
+    elif "DEATH" in file_name:
+        file_name = str.replace(file_name, "DEATH", "Death")
+    elif "TRIGGER" in file_name:
+        file_name = str.replace(file_name, "TRIGGER", "Trigger")
 
     return file_name
