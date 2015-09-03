@@ -3,10 +3,11 @@
 import urllib.request
 import os
 import re
+import time
 
 site_root = "http://www.hearthpwn.com"
-site_url = "http://www.hearthpwn.com/cards?display=1&filter-set=103&filter-unreleased=1&page="
-page_index_end = 2
+site_url = "http://www.hearthpwn.com/cards?display=1&page="
+page_index_end = 13
 
 page_pattern = 'manual-data-link\" href=\"(.*?)\"'
 # card_name_pattern = '\[card\](.*?)\[/card\]'
@@ -68,10 +69,14 @@ def download_video(name, url):
         print("Downloaded animation: " + name)
 
 
+def reconnect():
+    print("Connection error. Retrying in 1 minute...")
+    time.sleep(60)
+
 check_directory(path)
 check_directory(path_video)
 
-for page_index in range(2, page_index_end + 1):
+for page_index in range(1, page_index_end + 1):
     site = get_url_content(site_url + str(page_index))
 
     # change this to start from a specific card on the page
@@ -79,12 +84,22 @@ for page_index in range(2, page_index_end + 1):
 
     link = get_pattern(page_pattern, site, num)
 
+    # TODO name scraping does not work with current hearthpwn page
+
     while link is not None:
         page = get_url_content(site_root + link)
 
-        card_name = get_pattern(card_name_pattern, page)
-        download_image(card_name, get_pattern(image_pattern, page))
-        download_video(card_name, get_pattern(video_pattern, page))
+        card_name = str(get_pattern(card_name_pattern, page))
+        print("Page " + str(page_index) + ", Index " + str(num))
+
+        success = False
+        while success is False:
+            try:
+                download_image(card_name, get_pattern(image_pattern, page))
+                download_video(card_name, get_pattern(video_pattern, page))
+                success = True
+            except TimeoutError:
+                reconnect()
 
         num += 1
         link = get_pattern(page_pattern, site, num)

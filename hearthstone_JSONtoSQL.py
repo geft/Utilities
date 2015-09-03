@@ -116,7 +116,8 @@ for setIndex in range(0, len(cardSet)):
         )
 
         try:
-            if not (card[5] == 'NULL' or card[16] == 'NULL'):
+            # if null cost or null collectible or non-collectible
+            if not (card[5] == 'NULL' or card[16] == 'NULL' or card[16] == 0):
                 c.execute("INSERT INTO cards VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", card)
 
         except sqlite3.OperationalError:
