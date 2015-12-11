@@ -88,7 +88,8 @@ cardSet = ["Basic",
            "Reward",
            "System",
            "Tavern Brawl",
-           "The Grand Tournament"]
+           "The Grand Tournament",
+           "League of Explorers"]
 key = 1
 
 # populate database

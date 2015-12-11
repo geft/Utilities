@@ -17,3 +17,12 @@ def get_source_from_page(page):
 
     return source.decode("utf-8")
 
+
+def get_source_from_url(url):
+    try:
+        source = urllib.request.urlopen(url).read()
+    except urllib.error.HTTPError:
+        return ""
+
+    return source.decode("utf-8")
+
