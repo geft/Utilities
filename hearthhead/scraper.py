@@ -1,12 +1,11 @@
 import download
-import run
 
 
-def start(source):
-    if run.is_download_sound():
+def start(source, sound, image):
+    if sound:
         download_sound(source)
 
-    if run.is_download_image():
+    if image:
         download_image(source)
 
 
@@ -46,6 +45,7 @@ def get_url(source, sub_id, sub_start, sub_end):
     print(file_url)
 
     full_url = "http://" + file_url
+    full_url = full_url.replace(" ", "")
 
     print("Downloading " + full_url)
 
