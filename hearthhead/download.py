@@ -9,10 +9,10 @@ def sound(url):
     save(url, dir_name, file_name)
 
 
-def animated(url):
-    dir_name = "animated/"
+def image(url):
+    dir_name = "original/"
     file_name = url[str.index(url, dir_name) + len(dir_name):]
-    save(url, dir_name, file_name[:-12] + ".gif")
+    save(url, dir_name, file_name)
 
 
 def save(url, dir_name, file_name):

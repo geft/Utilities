@@ -8,7 +8,16 @@ import scraper
 import source
 
 
-def reconnect():
+def is_download_sound():
+    return True
+
+
+def is_download_image():
+    return False
+
+
+def reconnect(current_page):
+    print("Error obtaining page " + current_page)
     print("Connection error. Retrying in 5 minutes...")
     time.sleep(300)
 
@@ -33,6 +42,6 @@ if id_list is not None:
             except http.client.IncompleteRead:
                 pass
             except TimeoutError:
-                reconnect()
+                reconnect(page)
             except urllib.error.URLError:
-                reconnect()
+                reconnect(page)
