@@ -19,7 +19,11 @@ def print_error(current_page):
     print("Error obtaining page " + current_page)
 
 
+def get_log(current_page, current_log):
+    return current_log + "\n" + current_page
+
 id_list = id_parser.get_id_from_url()
+log = "Error on the following pages: "
 
 if id_list is not None:
     for page in id_list:
@@ -30,14 +34,21 @@ if id_list is not None:
             if source.is_source_valid(sourceFile):
                 scraper.start(
                     sourceFile, is_download_sound(), is_download_image())
-                print("Page " + page + " scraped")
             result = True
+
         except ValueError:
             print(traceback.format_exc())
             exit()
         except http.client.IncompleteRead:
             print_error(page)
+            log = get_log(page, log)
         except TimeoutError:
             print_error(page)
+            log = get_log(page, log)
         except urllib.error.URLError:
             print_error(page)
+            log = get_log(page, log)
+
+        print("Page " + page + " scraped")
+
+print(log)
