@@ -1,9 +1,7 @@
-__author__ = 'Gerry'
-
 import os
 import shutil
 
-import hearthhead.reformat_sound
+import reformat_sound
 
 
 def get_src():
@@ -43,7 +41,7 @@ file_list = os.listdir(src)
 
 for file_name in file_list:
     src_path = os.path.join(src, file_name)
-    new_file_name = hearthhead.reformat_sound.reformat_sound_name(file_name)
+    new_file_name = reformat_sound.reformat_sound_name(file_name)
     dst_path = os.path.join(dst, new_file_name)
 
     if os.path.isfile(src_path):

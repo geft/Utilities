@@ -1,6 +1,4 @@
-__author__ = 'Gerry'
-
-import hearthhead.download
+import download
 
 
 def start(source):
@@ -13,12 +11,12 @@ def start(source):
 def download_sound(source):
     for index in range(0, 4):
         if has_sound(source, index):
-            hearthhead.download.sound(get_sound_url(source, index))
+            download.sound(get_sound_url(source, index))
 
 
 def download_animation(source):
     try:
-        hearthhead.download.animated(get_gif_url(source))
+        download.animated(get_gif_url(source))
     except ValueError:
         print("No animation found")
 

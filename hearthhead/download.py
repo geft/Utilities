@@ -1,8 +1,6 @@
-__author__ = 'Gerry'
-
-import urllib.request
-import urllib.error
 import os
+import urllib.error
+import urllib.request
 
 
 def sound(url):

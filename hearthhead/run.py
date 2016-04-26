@@ -1,13 +1,11 @@
-__author__ = 'Gerry'
-
+import http.client
 import time
 import traceback
 import urllib.error
-import http.client
 
-import hearthhead.source
-import hearthhead.scraper
-import hearthhead.id_parser
+import id_parser
+import scraper
+import source
 
 
 def reconnect():
@@ -15,7 +13,7 @@ def reconnect():
     time.sleep(300)
 
 
-id_list = hearthhead.id_parser.get_id_from_url()
+id_list = id_parser.get_id_from_url()
 
 if id_list is not None:
     for page in id_list:
@@ -24,9 +22,9 @@ if id_list is not None:
         result = None
         while result is None:
             try:
-                source = hearthhead.source.get_source_from_page(page)
-                if hearthhead.source.is_source_valid(source):
-                    hearthhead.scraper.start(source)
+                sourceFile = source.get_source_from_page(page)
+                if source.is_source_valid(sourceFile):
+                    scraper.start(sourceFile)
                     print("Page " + page + " scraped")
                 result = True
             except ValueError:

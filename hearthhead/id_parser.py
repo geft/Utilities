@@ -1,8 +1,6 @@
-__author__ = 'Gerry'
-
 import re
 
-import hearthhead.source
+import source
 
 
 def source_parser(source_text):
@@ -11,10 +9,10 @@ def source_parser(source_text):
 
 def get_id_from_url():
     url_input = input("Enter URL address: ")
-    source = hearthhead.source.get_source_from_url(url_input)
+    source_file = source.get_source_from_url(url_input)
 
-    if source is "":
+    if source_file is "":
         print("Invalid URL")
     else:
         print("Source code obtained")
-        return source_parser(source)
+        return source_parser(source_file)

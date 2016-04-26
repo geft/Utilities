@@ -1,7 +1,5 @@
-__author__ = 'Gerry'
-
-import urllib.request
 import urllib.error
+import urllib.request
 
 
 def is_source_valid(source):
