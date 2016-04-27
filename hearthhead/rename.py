@@ -1,7 +1,7 @@
 import os
 import shutil
 
-import reformat_sound
+import reformat_sound_OG
 
 
 def get_src():
@@ -20,7 +20,7 @@ def get_src():
 
 
 def get_dst(src_dir):
-    path = os.path.join(os.path.dirname(src_dir), "card_sounds")
+    path = os.path.join(os.path.dirname(src_dir), "sounds_output")
 
     if os.path.isdir(path):
         shutil.rmtree(path)
@@ -41,7 +41,8 @@ file_list = os.listdir(src)
 
 for file_name in file_list:
     src_path = os.path.join(src, file_name)
-    new_file_name = reformat_sound.reformat_sound_name(file_name)
+    # new_file_name = reformat_sound.reformat_sound_name(file_name)
+    new_file_name = reformat_sound_OG.reformat(file_name)
     dst_path = os.path.join(dst, new_file_name)
 
     if os.path.isfile(src_path):
