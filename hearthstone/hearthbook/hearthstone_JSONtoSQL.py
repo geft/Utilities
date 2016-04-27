@@ -1,8 +1,8 @@
 import json
-import sqlite3
-import traceback
 import os
 import re
+import sqlite3
+import traceback
 
 
 # obtain key value from dict

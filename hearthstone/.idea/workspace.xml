@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7ca77300-58e7-4eb4-8ce2-b7442d831554" name="Default" comment="Reorganize project files">
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/.idea/hearthstone.iml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthpwn/__init__.py" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/AllSets.json" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/App.config" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/FileUtility.csproj" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/Program.cs" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/Properties/AssemblyInfo.cs" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/RecursiveFileSearch.cs" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/bin/Debug/FileUtility.exe" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/bin/Debug/FileUtility.exe.config" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/bin/Debug/FileUtility.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/bin/Debug/FileUtility.vshost.exe" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/bin/Debug/FileUtility.vshost.exe.config" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/bin/Debug/FileUtility.vshost.exe.manifest" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/obj/Debug/FileUtility.csproj.FileListAbsolute.txt" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/obj/Debug/FileUtility.csprojResolveAssemblyReference.cache" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/obj/Debug/FileUtility.exe" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/obj/Debug/FileUtility.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FileUtility/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FolderDeleter.sln" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/FolderDeleter/FolderDeleter.v12.suo" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/_frac2mif.py" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/_rename.py" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/_vimeo.py" afterPath="" />
+      <change type="DELETED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/cards.db" afterPath="" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/.idea/vcs.xml" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/.idea/vcs.xml" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/__init__.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthbook/__init__.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/download.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/download.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/edge_cases.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/edge_cases.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/id_parser.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/id_parser.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/reformat_sound.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/reformat_sound.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/reformat_sound_OG.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/reformat_sound_OG.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/rename.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/rename.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/run.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/run.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/scraper.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/scraper.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/source.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/source.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthpwn_scraper.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthpwn/hearthpwn_scraper.py" />
+      <change type="MOVED" beforePath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone_JSONtoSQL.py" afterPath="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthbook/hearthstone_JSONtoSQL.py" />
+    </list>
+    <ignored path="hearthhead.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="hearthhead" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-594">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="source.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/source.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reformat_sound_OG.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/reformat_sound_OG.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1176">
+              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hearthpwn_scraper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthpwn/hearthpwn_scraper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+              <folding>
+                <element signature="e#76#85#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/PyCharmProjects/Utilities" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/edge_cases.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/id_parser.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/reformat_sound.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/source.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/download.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/scraper.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/run.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/rename.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthhead/reformat_sound_OG.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthpwn/hearthpwn_scraper.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/run.py" />
+        <option value="$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/__init__.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="hearthhead">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="hearthpwn">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="hearthhead">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="hearthhead">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="hearthhead">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hearthstone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hearthstone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hearthpwn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hearthstone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hearthstone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hearthhead" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hearthstone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hearthstone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hearthbook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PyCharmProjects/Utilities/hearthpwn_scraper.py" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Gerry\PyCharmProjects\Utilities\hearthhead\hearthbook" />
+      <recent name="C:\Users\Gerry\PyCharmProjects\Utilities\hearthhead" />
+      <recent name="C:\Users\Gerry\PyCharmProjects\Utilities\hearthhead\hearthpwn" />
+      <recent name="C:\Users\Gerry\PyCharmProjects\Utilities\hearthhead\hearthhead" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hearthhead" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hearthhead" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hearthhead" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hearthhead" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hearthhead" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hearthhead" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hearthhead" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7ca77300-58e7-4eb4-8ce2-b7442d831554" name="Default" comment="" />
+      <created>1461678683719</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1461678683719</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Fix import errors">
+      <created>1461680388443</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1461680388443</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fix hearthhead scraper">
+      <created>1461683077747</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1461683077747</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fix space error in url">
+      <created>1461687773135</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1461687773135</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add error logging">
+      <created>1461691478279</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1461691478279</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add sound formatting for Old Gods set">
+      <created>1461773027934</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1461773027934</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Modify formatting logic to be more generic">
+      <created>1461775013249</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1461775013249</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26057082" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3261851" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39954853" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Fix import errors" />
+    <MESSAGE value="Fix hearthhead scraper" />
+    <MESSAGE value="Fix space error in url" />
+    <MESSAGE value="Add error logging" />
+    <MESSAGE value="Add sound formatting for Old Gods set" />
+    <MESSAGE value="Modify formatting logic to be more generic" />
+    <MESSAGE value="Reorganize project files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganize project files" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/reformat_sound_OG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthpwn/hearthpwn_scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#76#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/rename.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/download.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1342">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/download.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthhead/__init__.py" />
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/id_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/edge_cases.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2582">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/reformat_sound.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1196">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/reformat_sound_OG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1176">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/download.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/rename.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthpwn/hearthpwn_scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="e#76#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1342">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/source.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthpwn/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthbook/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PyCharmProjects/Utilities/hearthstone/hearthhead/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-594">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

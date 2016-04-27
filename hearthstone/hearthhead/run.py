@@ -2,9 +2,7 @@ import http.client
 import traceback
 import urllib.error
 
-import id_parser
-import scraper
-import source
+import hearthhead
 
 
 def is_download_sound():
@@ -22,7 +20,8 @@ def print_error(current_page):
 def get_log(current_page, current_log):
     return current_log + "\n" + current_page
 
-id_list = id_parser.get_id_from_url()
+
+id_list = hearthhead.id_parser.get_id_from_url()
 log = "Error on the following pages: "
 
 if id_list is not None:
@@ -30,9 +29,9 @@ if id_list is not None:
         page = str(page)
 
         try:
-            sourceFile = source.get_source_from_page(page)
-            if source.is_source_valid(sourceFile):
-                scraper.start(
+            sourceFile = hearthhead.source.get_source_from_page(page)
+            if hearthhead.source.is_source_valid(sourceFile):
+                hearthhead.scraper.start(
                     sourceFile, is_download_sound(), is_download_image())
             result = True
 

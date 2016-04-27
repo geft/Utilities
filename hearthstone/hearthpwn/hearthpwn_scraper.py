@@ -1,9 +1,9 @@
 # extract all card images from HearthPwn, only works with display mode = 1
 
-import urllib.request
 import os
 import re
 import time
+import urllib.request
 
 site_root = "http://www.hearthpwn.com"
 # page index is calculated below and should be left out

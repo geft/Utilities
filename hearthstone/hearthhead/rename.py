@@ -1,7 +1,7 @@
 import os
 import shutil
 
-import reformat_sound_OG
+from hearthhead import reformat_sound_OG
 
 
 def get_src():

@@ -1,4 +1,4 @@
-import download
+from hearthhead import download
 
 
 def start(source, sound, image):

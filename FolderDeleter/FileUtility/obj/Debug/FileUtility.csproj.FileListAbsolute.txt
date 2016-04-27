@@ -1,6 +1,0 @@
-c:\users\gerry\documents\visual studio 2013\Projects\FolderDeleter\FileUtility\bin\Debug\FileUtility.exe.config
-c:\users\gerry\documents\visual studio 2013\Projects\FolderDeleter\FileUtility\bin\Debug\FileUtility.exe
-c:\users\gerry\documents\visual studio 2013\Projects\FolderDeleter\FileUtility\bin\Debug\FileUtility.pdb
-c:\users\gerry\documents\visual studio 2013\Projects\FolderDeleter\FileUtility\obj\Debug\FileUtility.csprojResolveAssemblyReference.cache
-c:\users\gerry\documents\visual studio 2013\Projects\FolderDeleter\FileUtility\obj\Debug\FileUtility.exe
-c:\users\gerry\documents\visual studio 2013\Projects\FolderDeleter\FileUtility\obj\Debug\FileUtility.pdb

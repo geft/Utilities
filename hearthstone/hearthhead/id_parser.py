@@ -1,6 +1,6 @@
 import re
 
-import source
+from hearthhead import source
 
 
 def source_parser(source_text):
