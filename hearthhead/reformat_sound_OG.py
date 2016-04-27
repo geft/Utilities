@@ -1,3 +1,4 @@
+card_set = 'OG_'
 extension = '.mp3'
 
 
@@ -20,8 +21,8 @@ def remove_middle(file_name):
     if start_index is not -1 \
             and end_index is not -1 \
             and start_index is not end_index:
-        print("Process MIDDLE: " + file_name +
-              '[' + str(start_index) + ', ' + str(end_index) + ']')
+        print("MIDDLE: " + file_name +
+              ' [' + str(start_index) + ', ' + str(end_index) + ']')
 
         file_name = file_name[:start_index] + file_name[end_index:]
 
@@ -40,10 +41,12 @@ def get_middle_end_index(file_name):
 
 
 def get_middle_start_index(file_name):
-    if file_name[2] is '_' and file_name[6] is '_':
-        start_index = 6
-    elif file_name[2] is '_' and file_name[7] is '_':
-        start_index = 7
+    set_char = len(card_set) - 1
+
+    if file_name[set_char] is '_' and file_name[set_char + 4] is '_':
+        start_index = set_char + 4
+    elif file_name[set_char] is '_' and file_name[set_char + 5] is '_':
+        start_index = set_char + 5
     else:
         start_index = -1
     return start_index
@@ -59,12 +62,12 @@ def remove_strings(file_name):
     file_name = str.replace(file_name, 'VO_', '')
     file_name = str.replace(file_name, 'Male_OldGod_', '')
 
-    for i in range(1, 3):
-        if 'InPlay' not in file_name:
-            file_name = str.replace(file_name, '_0' + str(i) + extension, extension)
+    digit = file_name[-6:-4]
+    if digit.isnumeric() and 'InPlay' not in file_name:
+        file_name = file_name[:-7] + file_name[-4:]
 
     return file_name
 
 
 def find_start_index(file_name):
-    return str.find(file_name, 'OG_')
+    return str.find(file_name, card_set)
