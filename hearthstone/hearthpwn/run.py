@@ -7,7 +7,7 @@ import hearthpwn
 site_url = "http://www.hearthpwn.com//cards?filter-premium=1&filter-set=105&filter-unreleased=1&display=1"
 
 # download begins from this card
-start_index = 11
+start_index = 0
 
 # download stops at this page (this index is excluded)
 page_index_end = 3
