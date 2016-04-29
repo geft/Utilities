@@ -2,9 +2,7 @@ import cfscrape
 
 import hearthpwn
 
-# should not include page index
-# display mode should be 1
-site_url = "http://www.hearthpwn.com//cards?filter-premium=1&filter-set=105&filter-unreleased=1&display=1"
+site_url = "http://www.hearthpwn.com/cards?display=1&filter-premium=1&filter-set=105&filter-unreleased=1&page=2"
 
 # download begins from this card
 start_index = 0
@@ -18,18 +16,47 @@ def get_site_content(url):
     return scraper.get(url).text
 
 
-def check_url():
-    if "&display=1" not in site_url:
-        print("Display must be set to 1")
-        exit()
+def modify_page(url):
+    page_modifier = "&page="
+    if page_index_end > 1 and page_modifier not in url:
+        url += page_modifier + str(page_index)
+    if page_modifier + str(page_index - 1) in url:
+        url = str.replace(
+            url,
+            page_modifier + str(page_index - 1),
+            page_modifier + str(page_index))
+
+    return url
 
 
-check_url()
+def modify_display_type(url):
+    display_modifier = '&display='
+
+    if display_modifier in url:
+        index = url.find(display_modifier) + len(display_modifier)
+        url = url[:index] + '1' + url[index + 1:]
+    else:
+        url = url + display_modifier + '1'
+
+    return url
+
+
+def modify_start_index():
+    page_modifier = '&page='
+    if page_modifier in site_url:
+        index = site_url.find(page_modifier) + len(page_modifier)
+
+        if site_url[index].isdigit():
+            return site_url[index]
+
+
+# START #
+
 hearthpwn.directory.check_output_directories()
 
-for page_index in range(1, page_index_end):
+for page_index in range(int(modify_start_index()), page_index_end):
+    site_url = modify_page(site_url)
+    site_url = modify_display_type(site_url)
 
-    if page_index_end > 1:
-        site_url += "&page=" + str(page_index)
-
+    print("Loading " + site_url)
     hearthpwn.downloader.start_download(get_site_content(site_url), start_index, page_index)

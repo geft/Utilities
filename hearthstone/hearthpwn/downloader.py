@@ -49,19 +49,19 @@ def get_indexed_path(file_path, file_ext):
 def download_image(name, url):
     if url is not None:
         indexed_path = get_indexed_path(hearthpwn.directory.get_image_path() + name, image_extension)
-        retrieve_url_data(indexed_path, name, url)
+        retrieve_url_data(indexed_path, name, url, "image")
 
 
-def retrieve_url_data(indexed_path, name, url):
+def retrieve_url_data(indexed_path, name, url, type):
     print("Processing url " + url + " with index path " + str(indexed_path))
     urllib.request.urlretrieve(url, indexed_path)
-    print("Downloaded image: " + name)
+    print("Downloaded " + type + ": " + name)
 
 
 def download_video(name, url):
     if url and not url.endswith(image_extension):
         indexed_path = get_indexed_path(hearthpwn.directory.get_video_path() + name, video_extension)
-        retrieve_url_data(indexed_path, name, url)
+        retrieve_url_data(indexed_path, name, url, "video")
 
 
 def get_url_content(url):
