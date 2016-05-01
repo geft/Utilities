@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import urllib.error
 import urllib.request
 
 import hearthpwn.directory
@@ -54,7 +55,11 @@ def download_image(name, url):
 
 def retrieve_url_data(indexed_path, name, url, type):
     print("Processing url " + url + " with index path " + str(indexed_path))
-    urllib.request.urlretrieve(url, indexed_path)
+    try:
+        urllib.request.urlretrieve(url, indexed_path)
+    except urllib.error.HTTPError:
+        print("ERROR: " + name + " is missing")
+
     print("Downloaded " + type + ": " + name)
 
 

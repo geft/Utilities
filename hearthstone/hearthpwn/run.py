@@ -2,13 +2,13 @@ import cfscrape
 
 import hearthpwn
 
-site_url = "http://www.hearthpwn.com/cards?display=1&filter-premium=1&filter-set=105&filter-unreleased=1&page=2"
+site_url = "http://www.hearthpwn.com/cards?display=1&filter-premium=0&filter-set=105&filter-unreleased=1"
 
 # download begins from this card
 start_index = 0
 
 # download stops at this page (this index is excluded)
-page_index_end = 3
+page_index_end = 2
 
 
 def get_site_content(url):
@@ -30,31 +30,35 @@ def modify_page(url):
 
 
 def modify_display_type(url):
-    display_modifier = '&display='
+    display_modifier = 'display='
 
     if display_modifier in url:
         index = url.find(display_modifier) + len(display_modifier)
         url = url[:index] + '1' + url[index + 1:]
     else:
-        url = url + display_modifier + '1'
+        print('Display qualifier not found')
+        exit()
 
     return url
 
 
 def modify_start_index():
     page_modifier = '&page='
+    page_index_start = 1
     if page_modifier in site_url:
         index = site_url.find(page_modifier) + len(page_modifier)
 
         if site_url[index].isdigit():
-            return site_url[index]
+            page_index_start = site_url[index]
+
+    return page_index_start
 
 
 # START #
 
 hearthpwn.directory.check_output_directories()
 
-for page_index in range(int(modify_start_index()), page_index_end):
+for page_index in range(modify_start_index(), page_index_end):
     site_url = modify_page(site_url)
     site_url = modify_display_type(site_url)
 
