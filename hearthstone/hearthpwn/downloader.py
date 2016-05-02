@@ -59,7 +59,7 @@ def retrieve_url_data(indexed_path, name, url, file_type):
     try:
         urllib.request.urlretrieve(url, indexed_path)
     except urllib.error.HTTPError:
-        hearthpwn.logger.append_log("ERROR: " + name + " is missing " + file_type)
+        hearthpwn.logger.append_log("ERROR: " + name + " with url " + url + "is missing " + file_type)
 
     print("Downloaded " + file_type + ": " + name)
 
