@@ -2,13 +2,13 @@ import cfscrape
 
 import hearthpwn
 
-site_url = "http://www.hearthpwn.com/cards?display=1&filter-premium=0&filter-set=105&filter-unreleased=1"
+site_url = "http://www.hearthpwn.com/cards?display=1"
 
 # download begins from this card
 start_index = 0
 
 # download stops at this page (this index is excluded)
-page_index_end = 2
+page_index_end = 19
 
 
 def get_site_content(url):
@@ -64,3 +64,5 @@ for page_index in range(modify_start_index(), page_index_end):
 
     print("Loading " + site_url)
     hearthpwn.downloader.start_download(get_site_content(site_url), start_index, page_index)
+
+hearthpwn.logger.print_log()

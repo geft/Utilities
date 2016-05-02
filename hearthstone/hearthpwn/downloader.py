@@ -8,7 +8,7 @@ import hearthpwn.directory
 
 site_root = "http://www.hearthpwn.com"
 page_pattern = 'manual-data-link\" href=\"(.*?)\"'
-card_name_pattern = '<a href=\"/cards/\d\d\d\d\d-(.*?)\" rel=\"up\"'
+card_name_pattern = '<link rel="canonical" href="http:\/\/www.hearthpwn.com\/cards\/[0-9]+-(.*?)\"'
 
 image_extension = ".png"
 image_pattern = 'data-imageurl=\"(.*?.png)\"'
@@ -31,8 +31,8 @@ def get_pattern(pattern, string, index=0):
             except IndexError:
                 pass
     except TypeError:
-        print('Error with pattern ' + pattern)
-        print(string)
+        error = 'ERROR: Pattern ' + pattern + ' and string ' + string
+        hearthpwn.logger.append_log(error)
 
     return None
 
@@ -58,7 +58,8 @@ def retrieve_url_data(indexed_path, name, url, type):
     try:
         urllib.request.urlretrieve(url, indexed_path)
     except urllib.error.HTTPError:
-        print("ERROR: " + name + " is missing")
+        error = "ERROR: " + name + " is missing"
+        hearthpwn.logger.append_log(error)
 
     print("Downloaded " + type + ": " + name)
 
