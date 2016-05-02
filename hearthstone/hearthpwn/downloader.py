@@ -3,6 +3,7 @@ import re
 import time
 import urllib.error
 import urllib.request
+from multiprocessing.dummy import Pool as ThreadPool
 
 import hearthpwn.directory
 
@@ -22,19 +23,19 @@ def does_file_exist(file_path):
 
 
 def get_pattern(pattern, string, index=0):
-    try:
-        match = re.findall(re.compile(pattern), string)
+    match = re.findall(re.compile(pattern), string)
 
-        if match:
-            try:
-                return match[index]
-            except IndexError:
-                pass
-    except TypeError:
-        error = 'ERROR: Pattern ' + pattern + ' and string ' + string
-        hearthpwn.logger.append_log(error)
+    if len(match) > 0:
+        try:
+            return match[index]
+        except IndexError:
+            pass
+    else:
+        return None
 
-    return None
+
+def get_patter_group(pattern, string):
+    return re.findall(re.compile(pattern), string)
 
 
 def get_indexed_path(file_path, file_ext):
@@ -53,15 +54,14 @@ def download_image(name, url):
         retrieve_url_data(indexed_path, name, url, "image")
 
 
-def retrieve_url_data(indexed_path, name, url, type):
+def retrieve_url_data(indexed_path, name, url, file_type):
     print("Processing url " + url + " with index path " + str(indexed_path))
     try:
         urllib.request.urlretrieve(url, indexed_path)
     except urllib.error.HTTPError:
-        error = "ERROR: " + name + " is missing"
-        hearthpwn.logger.append_log(error)
+        hearthpwn.logger.append_log("ERROR: " + name + " is missing " + file_type)
 
-    print("Downloaded " + type + ": " + name)
+    print("Downloaded " + file_type + ": " + name)
 
 
 def download_video(name, url):
@@ -74,26 +74,26 @@ def get_url_content(url):
     return urllib.request.urlopen(url).read().decode("utf-8")
 
 
-def start_download(site, start_index, page_index):
-    link = get_pattern(page_pattern, site, start_index)
+def start_download(site, page_index):
+    links = get_patter_group(page_pattern, site)
+    print("Processing page " + str(page_index))
+    pool = ThreadPool(4)
+    pool.map(download, links)
+    pool.close()
+    pool.join()
 
-    while link is not None:
-        page = get_url_content(site_root + link)
 
-        card_name = str(get_pattern(card_name_pattern, page))
-        print("Page " + str(page_index) + ", Index " + str(start_index))
-
-        success = False
-        while success is False:
-            try:
-                download_image(card_name, get_pattern(image_pattern, page))
-                download_video(card_name, get_pattern(video_pattern, page))
-                success = True
-            except TimeoutError:
-                reconnect()
-
-        start_index += 1
-        link = get_pattern(page_pattern, site, start_index)
+def download(link):
+    page = get_url_content(site_root + link)
+    card_name = str(get_pattern(card_name_pattern, page))
+    success = False
+    while success is False:
+        try:
+            download_image(card_name, get_pattern(image_pattern, page))
+            download_video(card_name, get_pattern(video_pattern, page))
+            success = True
+        except TimeoutError:
+            reconnect()
 
 
 def reconnect():
