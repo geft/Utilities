@@ -26,6 +26,7 @@ def write_database(data, cursor):
             get_value(entry, "mechanics"),
             get_value(entry, "dust"),
             get_value(entry, "race"),
+            get_value(entry, "playerClass"),
             get_value(entry, "howToEarn"),
             get_value(entry, "howToEarnGolden"),
             get_value(entry, "targetingArrowText"),
@@ -45,7 +46,7 @@ def get_value(entry, field):
 
 
 def insert_entry(card, cursor):
-    entry_count = 22
+    entry_count = 23
     param = '?'
 
     for index in range(1, entry_count):
@@ -75,6 +76,7 @@ def create_database(connection):
                     mechanics TEXT,
                     dust TEXT,
                     race TEXT COLLATE NOCASE,
+                    playerClass TEXT,
                     howToEarn TEXT,
                     howToEarnGolden TEXT,
                     targetingArrowText TEXT,
