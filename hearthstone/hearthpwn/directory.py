@@ -1,4 +1,5 @@
 import os
+import shutil
 
 path_image = "C:\\Users\\Gerry\\Desktop\\image\\"
 path_video = "C:\\Users\\Gerry\\Desktop\\video\\"
@@ -10,8 +11,10 @@ def check_output_directories():
 
 
 def check(directory):
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    if os.path.exists(directory):
+        shutil.rmtree(directory, ignore_errors=True)
+
+    os.makedirs(directory)
 
 
 def get_image_path():
