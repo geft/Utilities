@@ -35,7 +35,8 @@ def write_database(data, cursor):
         )
 
         try:
-            insert_entry(card, cursor)
+            if card[10] != 'HERO_SKINS':
+                insert_entry(card, cursor)
         except sqlite3.OperationalError:
             print(traceback.format_exc())
             cursor.close()

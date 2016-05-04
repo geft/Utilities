@@ -2,7 +2,7 @@ import re
 
 
 def get_key_value(entry, field):
-    if field is "cardSet":
+    if field == "cardSet":
         field = "set"
 
     try:
@@ -10,7 +10,7 @@ def get_key_value(entry, field):
     except KeyError:
         return "NULL"
 
-    if field is 'text':
+    if field == 'text':
         value = get_formatted_text(value)
     elif isinstance(value, list):
         value = flatten_array(value)
