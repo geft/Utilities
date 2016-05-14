@@ -1,8 +1,5 @@
 import json_parser
 
-data_root = 'C:\\Users\\Gerry\\Google Drive\\Android\\Codes\\Hearthstone\\data\\'
-file_name = 'cards.collectible'
-
 json_parser.reader.remove_sql_data()
 
 json_data = json_parser.reader.get_json_data()

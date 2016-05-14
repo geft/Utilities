@@ -2,10 +2,10 @@ import json
 import os
 import sqlite3
 
-import json_parser.run
+import json_parser.directory
 
-data_root = json_parser.run.data_root
-file_name = json_parser.run.file_name
+data_root = json_parser.directory.data_root
+file_name = json_parser.directory.file_name
 json_file = data_root + file_name + '.json'
 sql_file = data_root + file_name + '.db'
 
