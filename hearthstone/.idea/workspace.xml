@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ca77300-58e7-4eb4-8ce2-b7442d831554" name="Default" comment="Exclude hero skins when parsing json and implement hearthpedia credits downloader">
+    <list default="true" id="7ca77300-58e7-4eb4-8ce2-b7442d831554" name="Default" comment="Fix cyclic dependency">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json_parser/reader.py" afterPath="$PROJECT_DIR$/json_parser/reader.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json_parser/run.py" afterPath="$PROJECT_DIR$/json_parser/run.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json_parser/writer.py" afterPath="$PROJECT_DIR$/json_parser/writer.py" />
     </list>
     <ignored path="hearthhead.iws" />
@@ -29,9 +27,11 @@
       <file leaf-file-name="writer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/json_parser/writer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="418">
+              <caret line="37" column="60" selection-start-line="37" selection-start-column="60" selection-end-line="37" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,10 +39,22 @@
       <file leaf-file-name="reader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/json_parser/reader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+            <state relative-caret-position="-51">
+              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/json_parser/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,8 +63,18 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/json_parser/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+            <state relative-caret-position="198">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directory.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/json_parser/directory.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,10 +114,8 @@
         <option value="$PROJECT_DIR$/hearthpwn/page.py" />
         <option value="$PROJECT_DIR$/hearthpwn/run.py" />
         <option value="$PROJECT_DIR$/hearthpwn/downloader.py" />
-        <option value="$PROJECT_DIR$/json_parser/directory.py" />
         <option value="$PROJECT_DIR$/json_parser/loader.py" />
         <option value="$PROJECT_DIR$/hearthbook/hearthstone_JSONtoSQL.py" />
-        <option value="$PROJECT_DIR$/json_parser/__init__.py" />
         <option value="$PROJECT_DIR$/hearthbook/run.py" />
         <option value="$PROJECT_DIR$/json_parser/formatter.py" />
         <option value="$PROJECT_DIR$/hearthpedia/__init__.py" />
@@ -104,9 +124,11 @@
         <option value="$PROJECT_DIR$/hearthpedia/directory.py" />
         <option value="$PROJECT_DIR$/hearthpwn/directory.py" />
         <option value="$PROJECT_DIR$/hearthpedia/downloader.py" />
-        <option value="$PROJECT_DIR$/json_parser/writer.py" />
         <option value="$PROJECT_DIR$/json_parser/run.py" />
+        <option value="$PROJECT_DIR$/json_parser/__init__.py" />
         <option value="$PROJECT_DIR$/json_parser/reader.py" />
+        <option value="$PROJECT_DIR$/json_parser/directory.py" />
+        <option value="$PROJECT_DIR$/json_parser/writer.py" />
       </list>
     </option>
   </component>
@@ -268,7 +290,7 @@
       <recent name="C:\Users\Gerry\PyCharmProjects\Utilities\hearthhead\hearthhead" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run (2)">
+  <component name="RunManager" selected="Python.run (1)">
     <configuration default="false" name="run" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -461,8 +483,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.run (2)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.run (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Python.run (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.run (2)" />
         <item index="2" class="java.lang.String" itemvalue="Python.run" />
       </list>
     </recent_temporary>
@@ -614,7 +636,21 @@
       <option name="project" value="LOCAL" />
       <updated>1462378820741</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fix adding null cost cards and move root directory and file name to run">
+      <created>1463237737810</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1463237737810</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fix cyclic dependency">
+      <created>1463238012350</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1463238012350</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -674,7 +710,9 @@
     <MESSAGE value="Make everything case-insensitive" />
     <MESSAGE value="Exclude hero skins when parsing json" />
     <MESSAGE value="Exclude hero skins when parsing json and implement hearthpedia credits downloader" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exclude hero skins when parsing json and implement hearthpedia credits downloader" />
+    <MESSAGE value="Fix adding null cost cards and move root directory and file name to run" />
+    <MESSAGE value="Fix cyclic dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix cyclic dependency" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -693,13 +731,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hearthpwn/downloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="51" column="57" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hearthpwn/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -926,13 +957,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hearthbook/hearthstone_JSONtoSQL.py" />
-    <entry file="file://$PROJECT_DIR$/json_parser/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hearthhead/source.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -1026,28 +1050,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/json_parser/writer.py">
+    <entry file="file://$PROJECT_DIR$/json_parser/directory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+        <state relative-caret-position="44">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/json_parser/reader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        <state relative-caret-position="-51">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/json_parser/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json_parser/writer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="37" column="60" selection-start-line="37" selection-start-column="60" selection-end-line="37" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/json_parser/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        <state relative-caret-position="198">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
