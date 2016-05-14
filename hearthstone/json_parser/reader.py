@@ -2,8 +2,10 @@ import json
 import os
 import sqlite3
 
-data_root = 'C:\\Users\\Gerry\\Google Drive\\Android\\Codes\\Hearthstone\\data\\'
-file_name = 'cards'
+import json_parser.run
+
+data_root = json_parser.run.data_root
+file_name = json_parser.run.file_name
 json_file = data_root + file_name + '.json'
 sql_file = data_root + file_name + '.db'
 
