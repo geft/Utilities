@@ -1,8 +1,9 @@
 import cfscrape
 
-import hearthpwn
+import hearthstone.hearthpwn as hearthpwn
 
-site_url = "http://www.hearthpwn.com/cards?display=1"
+# display parameter must be first
+site_url = "http://www.hearthpwn.com/cards?display=1&filter-set=106"
 
 
 def get_input(text):
@@ -27,6 +28,7 @@ for page_index in range(hearthpwn.page.modify_start_index(site_url, page_index_s
     site_url = hearthpwn.page.modify_display_type(site_url)
 
     print("Loading " + site_url)
-    hearthpwn.downloader.start_download(get_site_content(site_url), page_index)
+    content = get_site_content(site_url)
+    hearthpwn.downloader.start_download(content, page_index)
 
 hearthpwn.logger.print_log()

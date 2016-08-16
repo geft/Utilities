@@ -1,6 +1,6 @@
 import re
 
-from hearthhead import source
+from hearthstone.hearthhead import source
 
 
 def source_parser(source_text):

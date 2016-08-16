@@ -1,3 +1,3 @@
-import hearthhead.id_parser
-import hearthhead.scraper
-import hearthhead.source
+import hearthstone.hearthhead.id_parser
+import hearthstone.hearthhead.scraper
+import hearthstone.hearthhead.source

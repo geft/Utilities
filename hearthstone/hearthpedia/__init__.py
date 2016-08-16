@@ -1,3 +1,3 @@
-import hearthpedia.directory
-import hearthpedia.downloader
-import hearthpedia.formatter
+import hearthstone.hearthpedia.directory
+import hearthstone.hearthpedia.downloader
+import hearthstone.hearthpedia.formatter

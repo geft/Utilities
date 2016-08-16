@@ -1,7 +1,7 @@
 import os
 import shutil
 
-from hearthhead import reformat_sound_OG
+from hearthstone.hearthhead import reformat_sound_OG
 
 
 def get_src():

@@ -1,4 +1,4 @@
-import hearthpedia
+import hearthstone.hearthpedia as hearthpedia
 
 url = 'http://hearthstone.gamepedia.com/Credits_card'
 

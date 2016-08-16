@@ -2,7 +2,7 @@ import http.client
 import traceback
 import urllib.error
 
-import hearthhead
+import hearthstone.hearthhead as hearthhead
 
 
 def is_download_sound():

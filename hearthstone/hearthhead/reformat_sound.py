@@ -1,4 +1,4 @@
-from hearthhead.edge_cases import rename_edge_cases
+from hearthstone.hearthhead.edge_cases import rename_edge_cases
 
 
 def reformat_sound_name(file_name):

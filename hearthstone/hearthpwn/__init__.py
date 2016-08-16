@@ -1,4 +1,4 @@
-import hearthpwn.directory
-import hearthpwn.downloader
-import hearthpwn.logger
-import hearthpwn.page
+import hearthstone.hearthpwn.directory
+import hearthstone.hearthpwn.downloader
+import hearthstone.hearthpwn.logger
+import hearthstone.hearthpwn.page

@@ -1,4 +1,4 @@
-from hearthhead import download
+from hearthstone.hearthhead import download
 
 
 def start(source, sound, image):

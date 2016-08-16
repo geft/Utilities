@@ -5,7 +5,8 @@ import urllib.error
 import urllib.request
 from multiprocessing.dummy import Pool as ThreadPool
 
-import hearthpwn.directory
+from hearthstone.hearthpwn.directory import get_image_path, get_video_path
+from hearthstone.hearthpwn.logger import append_log
 
 site_root = "http://www.hearthpwn.com"
 page_pattern = 'manual-data-link\" href=\"(.*?)\"'
@@ -34,7 +35,7 @@ def get_pattern(pattern, string, index=0):
         return None
 
 
-def get_patter_group(pattern, string):
+def get_pattern_group(pattern, string):
     return re.findall(re.compile(pattern), string)
 
 
@@ -50,7 +51,7 @@ def get_indexed_path(file_path, file_ext):
 
 def download_image(name, url):
     if url is not None:
-        indexed_path = get_indexed_path(hearthpwn.directory.get_image_path() + name, image_extension)
+        indexed_path = get_indexed_path(get_image_path() + name, image_extension)
         retrieve_url_data(indexed_path, name, url, "image")
 
 
@@ -59,14 +60,14 @@ def retrieve_url_data(indexed_path, name, url, file_type):
     try:
         urllib.request.urlretrieve(url, indexed_path)
     except urllib.error.HTTPError:
-        hearthpwn.logger.append_log("ERROR: " + name + " with url " + url + "is missing " + file_type)
+        append_log("ERROR: " + name + " with url " + url + " is missing " + file_type)
 
     print("Downloaded " + file_type + ": " + name)
 
 
 def download_video(name, url):
     if url and not url.endswith(image_extension):
-        indexed_path = get_indexed_path(hearthpwn.directory.get_video_path() + name, video_extension)
+        indexed_path = get_indexed_path(get_video_path() + name, video_extension)
         retrieve_url_data(indexed_path, name, url, "video")
 
 
@@ -75,8 +76,9 @@ def get_url_content(url):
 
 
 def start_download(site, page_index):
-    links = get_patter_group(page_pattern, site)
+    links = get_pattern_group(page_pattern, site)
     print("Processing page " + str(page_index))
+
     pool = ThreadPool(4)
     pool.map(download, links)
     pool.close()
