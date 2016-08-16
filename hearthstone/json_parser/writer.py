@@ -1,7 +1,7 @@
 import sqlite3
 import traceback
 
-import json_parser
+import hearthstone.json_parser
 
 
 def write_database(data, cursor):
@@ -43,7 +43,7 @@ def write_database(data, cursor):
 
 
 def get_value(entry, field):
-    return json_parser.formatter.get_key_value(entry, field)
+    return hearthstone.json_parser.formatter.get_key_value(entry, field)
 
 
 def insert_entry(card, cursor):
