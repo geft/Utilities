@@ -9,6 +9,7 @@ from hearthstone.hearthpwn.directory import get_image_path, get_video_path
 from hearthstone.hearthpwn.logger import append_log
 
 site_root = "http://www.hearthpwn.com"
+page_pattern = 'manual-data-link\" href=\"(.*?)\"'
 card_name_pattern = '<link rel="canonical" href="http:\/\/www.hearthpwn.com\/cards\/[0-9]+-(.*?)\"'
 
 image_extension = ".png"
@@ -16,10 +17,6 @@ image_pattern = 'data-imageurl=\"(.*?.png)\"'
 
 video_extension = ".webm"
 video_pattern = 'data-animationurl=\"(.*?webm)\"'
-
-
-def get_page_pattern(set_number):
-    return 'set-' + str(set_number) + ' manual-data-link\" href=\"(.*?)\"'
 
 
 def does_file_exist(file_path):
@@ -38,8 +35,8 @@ def get_pattern(pattern, string, index=0):
         return None
 
 
-def get_pattern_group(string, set_number):
-    return re.findall(re.compile(get_page_pattern(set_number)), string)
+def get_pattern_group(pattern, string):
+    return re.findall(re.compile(pattern), string)
 
 
 def get_indexed_path(file_path, file_ext):
@@ -78,8 +75,8 @@ def get_url_content(url):
     return urllib.request.urlopen(url).read().decode("utf-8")
 
 
-def start_download(site, page_index, set_number):
-    links = get_pattern_group(site, set_number)
+def start_download(site, page_index):
+    links = get_pattern_group(page_pattern, site)
     print("Processing page " + str(page_index))
 
     pool = ThreadPool(4)
