@@ -79,7 +79,7 @@ def start_download(site, page_index):
     links = get_pattern_group(page_pattern, site)
     print("Processing page " + str(page_index))
 
-    pool = ThreadPool(4)
+    pool = ThreadPool(3)
     pool.map(download, links)
     pool.close()
     pool.join()

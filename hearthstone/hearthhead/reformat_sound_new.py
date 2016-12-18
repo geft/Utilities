@@ -1,4 +1,4 @@
-card_set = 'OG_'
+card_set = 'KAR_'
 extension = '.mp3'
 
 

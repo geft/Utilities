@@ -1,7 +1,7 @@
 import os
 import shutil
 
-from hearthstone.hearthhead import reformat_sound_OG
+from hearthstone.hearthhead import reformat_sound_new
 
 
 def get_src():
@@ -42,7 +42,7 @@ file_list = os.listdir(src)
 for file_name in file_list:
     src_path = os.path.join(src, file_name)
     # new_file_name = reformat_sound.reformat_sound_name(file_name)
-    new_file_name = reformat_sound_OG.reformat(file_name)
+    new_file_name = reformat_sound_new.reformat(file_name)
     dst_path = os.path.join(dst, new_file_name)
 
     if os.path.isfile(src_path):
