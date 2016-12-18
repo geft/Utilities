@@ -57,6 +57,8 @@ def download(small_url):
             print("Downloading " + large_url)
             download_image(large_url, name)
             return
+        except ConnectionResetError:
+            reconnect()
         except TimeoutError:
             reconnect()
 
@@ -74,5 +76,5 @@ def image_path(name):
 
 
 def reconnect():
-    print("Connection error. Retrying in 30 seconds...")
-    time.sleep(30)
+    print("Connection error. Retrying in a minute...")
+    time.sleep(60)
