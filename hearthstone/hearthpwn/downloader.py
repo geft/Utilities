@@ -1,12 +1,12 @@
 import os
 import re
 import time
-import urllib.error
 import urllib.request
-from multiprocessing.dummy import Pool as ThreadPool
+import urllib.error
 
-from hearthstone.hearthpwn.directory import get_image_path, get_video_path
-from hearthstone.hearthpwn.logger import append_log
+from multiprocessing.dummy import Pool as ThreadPool
+from directory import get_image_path, get_video_path
+from logger import append_log
 
 site_root = "http://www.hearthpwn.com"
 page_pattern = 'manual-data-link\" href=\"(.*?)\"'
@@ -17,6 +17,8 @@ image_pattern = 'data-imageurl=\"(.*?.png)\"'
 
 video_extension = ".webm"
 video_pattern = 'data-animationurl=\"(.*?webm)\"'
+
+should_download_video = False
 
 
 def does_file_exist(file_path):
@@ -92,7 +94,9 @@ def download(link):
     while success is False:
         try:
             download_image(card_name, get_pattern(image_pattern, page))
-            download_video(card_name, get_pattern(video_pattern, page))
+
+            if should_download_video:
+                download_video(card_name, get_pattern(video_pattern, page))
             success = True
         except TimeoutError:
             reconnect()
