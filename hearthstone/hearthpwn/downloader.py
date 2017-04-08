@@ -130,15 +130,16 @@ def download(link):
     while cards is not None:
         try:
             i = next((i for i in range(0, len(cards)) if "name" in cards[i] and cards[i]["name"] == card_name), -1)
-            j = next((j for j in range(i+1, len(cards)-i-1) if "name" in cards[j] and cards[j]["name"] == card_name), -1)
 
-            if i == -1:
+            group = get_pattern("\"name\": \"" + card_name, cards)
+
+            if group is None:
                 print("Failed to find " + card_name + " in json")
                 return
-            elif j != -1:
-                card_id = "manual" + cards[i]["id"]
-            else:
+            elif len(group) == 1:
                 card_id = cards[i]["id"]
+            else:
+                card_id = "manual" + cards[i]["id"]
 
             if should_download_image:
                 download_image(card_id, get_pattern(image_pattern, source))
@@ -175,7 +176,7 @@ def get_source(url):
 
 
 def reconnect():
-    print(threading.current_thread().name + ": Connection error. Retrying in 1 minute...")
+    print(threading.current_thread().name + ": Connection error. Retrying in a moment...")
     time.sleep(120)
     print(threading.current_thread().name + ": Reconnecting")
 
