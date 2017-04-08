@@ -1,3 +1,4 @@
+import json
 import os
 import re
 import time
@@ -15,7 +16,8 @@ should_download_audio = True
 
 site_root = "http://www.hearthpwn.com"
 page_pattern = 'manual-data-link\" href=\"(.*?)\"'
-card_name_pattern = '<link rel="canonical" href="http:\/\/www.hearthpwn.com\/cards\/[0-9]+-(.*?)\"'
+card_name_pattern = '<h2 class="caption">(.*)<\/h2>'
+json_path = "C:\\Users\\Gerry\\Desktop\\cards.json"
 
 image_extension = ".png"
 image_pattern = 'data-imageurl=\"(.*?.png)\"'
@@ -25,6 +27,7 @@ video_pattern = 'data-animationurl=\"(.*?webm)\"'
 
 audio_pattern = 'src=\"(.*ogg)'
 audio_name_pattern = 'sound/(.*ogg)'
+
 
 def does_file_exist(file_path):
     return os.path.isfile(file_path)
@@ -68,8 +71,8 @@ def download_video(name, url):
         retrieve_url_data(path, name, url, "video")
 
 
-def download_audio(name, url):
-    path = get_audio_path() + name
+def download_audio(id, name, url):
+    path = get_audio_path() + id + " " + name
     if url is not None:
         retrieve_url_data(path, name, url, "audio")
 
@@ -107,27 +110,44 @@ def download(link):
     success = False
 
     try:
+        with open(json_path, 'r', encoding="utf8") as file:
+            cards = json.loads(file.read())
+
         while success is False:
             source = get_url_content(site_root + link)
             card_name = str(get_pattern(card_name_pattern, source))
 
+            i = next((i for i in range(0, len(cards)) if "name" in cards[i] and cards[i]["name"] == card_name), -1)
+            j = next((j for j in range(i+1, len(cards)-i) if "name" in cards[j] and cards[j]["name"] == card_name), -1)
+
+            if i == -1:
+                print("Failed to find " + card_name + " in json")
+                break
+            elif i != -1 and j != -1 and i != j:
+                card_id = "manual" + cards[i]["id"]
+            else:
+                card_id = cards[i]["id"]
+
             if should_download_image:
-                download_image(card_name, get_pattern(image_pattern, source))
+                download_image(card_id, get_pattern(image_pattern, source))
 
             if should_download_video:
-                download_video(card_name, get_pattern(video_pattern, source))
+                download_video(card_id, get_pattern(video_pattern, source))
 
             if should_download_audio:
                 group = get_pattern_group(audio_pattern, source)
                 for i in range(0, len(group)):
                     url = group[i].replace(" ", "%20")
                     name = group[i].replace(" ", "_")
-                    download_audio(get_pattern(audio_name_pattern, name), url)
+                    download_audio(card_id, get_pattern(audio_name_pattern, name), url)
 
             success = True
     except IncompleteRead or ConnectionResetError or TimeoutError:
         print("Failed to download " + link)
         reconnect()
+    except IOError:
+        print("json file not found")
+        exit()
 
 
 def reconnect():
