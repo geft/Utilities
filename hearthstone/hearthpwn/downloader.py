@@ -1,11 +1,11 @@
 import os
 import re
 import time
-import urllib.request
 import urllib.error
+import urllib.request
 from http.client import IncompleteRead
-
 from multiprocessing.dummy import Pool as ThreadPool
+
 from directory import get_image_path, get_video_path, get_audio_path
 from logger import append_log
 
