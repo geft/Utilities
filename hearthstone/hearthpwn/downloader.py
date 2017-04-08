@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -72,13 +73,13 @@ def download_video(name, url):
 
 
 def download_audio(id, name, url):
-    path = get_audio_path() + id + " " + name
+    path = get_audio_path() + id + "_" + name
     if url is not None:
         retrieve_url_data(path, name, url, "audio")
 
 
 def retrieve_url_data(path, name, url, file_type):
-    print("Processing url " + url + " with path " + path)
+    print(threading.current_thread().name + ": url " + url + " with path " + path)
 
     success = False
     while not success:
@@ -100,7 +101,7 @@ def get_url_content(url):
 def start_download(source):
     links = get_pattern_group(page_pattern, source)
 
-    pool = ThreadPool(3)
+    pool = ThreadPool(4)
     pool.map(download, links)
     pool.close()
     pool.join()
@@ -109,16 +110,18 @@ def start_download(source):
 def download(link):
     success = False
 
+    source = get_source(link)
+    card_name = str(get_pattern(card_name_pattern, source)).replace("&#x27;", "'")
+    cards = load_json()
+
+    if card_name is None:
+        print("Failed to find card name in " + link)
+        return
+
     try:
-        with open(json_path, 'r', encoding="utf8") as file:
-            cards = json.loads(file.read())
-
-        while success is False:
-            source = get_url_content(site_root + link)
-            card_name = str(get_pattern(card_name_pattern, source))
-
+        while success is False and cards is not None:
             i = next((i for i in range(0, len(cards)) if "name" in cards[i] and cards[i]["name"] == card_name), -1)
-            j = next((j for j in range(i+1, len(cards)-i) if "name" in cards[j] and cards[j]["name"] == card_name), -1)
+            j = next((j for j in range(i+1, len(cards)-i-1) if "name" in cards[j] and cards[j]["name"] == card_name), -1)
 
             if i == -1:
                 print("Failed to find " + card_name + " in json")
@@ -142,14 +145,33 @@ def download(link):
                     download_audio(card_id, get_pattern(audio_name_pattern, name), url)
 
             success = True
-    except IncompleteRead or ConnectionResetError or TimeoutError:
+    except IncompleteRead or TimeoutError:
         print("Failed to download " + link)
         reconnect()
     except IOError:
-        print("json file not found")
-        exit()
+        print("Failed to read " + card_name + " in json file")
+
+
+def get_source(link):
+    source = None
+    while source is None:
+        try:
+            source = get_url_content(site_root + link)
+        except ConnectionResetError:
+            reconnect()
+    return source
 
 
 def reconnect():
-    print("Connection error. Retrying in 1 minute...")
+    print(threading.current_thread().name + ": Connection error. Retrying in 1 minute...")
     time.sleep(60)
+
+
+def load_json():
+    cards = None
+    try:
+        with open(json_path, 'r', encoding="utf8") as file:
+            cards = json.loads(file.read())
+    except IOError:
+        print("Failed to load " + json_path)
+    return cards
