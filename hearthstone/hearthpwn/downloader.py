@@ -76,7 +76,7 @@ def download_video(name, url):
 
 
 def download_audio(id, name, url):
-    path = get_audio_path() + id + "_" + name
+    path = get_audio_path() + id + "," + name
     if url is not None:
         retrieve_url_data(path, name, url, "audio")
 
