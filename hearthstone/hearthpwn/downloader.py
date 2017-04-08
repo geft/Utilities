@@ -8,6 +8,8 @@ import urllib.request
 from http.client import IncompleteRead
 from multiprocessing.dummy import Pool as ThreadPool
 
+import cfscrape
+
 from directory import get_image_path, get_video_path, get_audio_path
 from logger import append_log
 
@@ -15,6 +17,7 @@ should_download_image = True
 should_download_video = True
 should_download_audio = True
 
+thread_size = 2
 site_root = "http://www.hearthpwn.com"
 page_pattern = 'manual-data-link\" href=\"(.*?)\"'
 card_name_pattern = '<h2 class="caption">(.*)<\/h2>'
@@ -68,7 +71,7 @@ def download_image(name, url):
 
 def download_video(name, url):
     path = get_indexed_path(get_video_path() + name, video_extension)
-    if url is not None and not url.endswith(image_extension):
+    if url is not None:
         retrieve_url_data(path, name, url, "video")
 
 
@@ -81,36 +84,42 @@ def download_audio(id, name, url):
 def retrieve_url_data(path, name, url, file_type):
     print(threading.current_thread().name + ": url " + url + " with path " + path)
 
-    success = False
-    while not success:
+    while True:
         try:
             urllib.request.urlretrieve(url, path)
             print("Downloaded " + file_type + ": " + name)
-            success = True
+            break
         except urllib.error.HTTPError:
             append_log("ERROR: " + name + " with url " + url + " is missing " + file_type)
+            break
         except ConnectionResetError:
             print("Failed to download " + name)
             reconnect()
 
 
-def get_url_content(url):
-    return urllib.request.urlopen(url).read().decode("utf-8")
-
-
 def start_download(source):
     links = get_pattern_group(page_pattern, source)
 
-    pool = ThreadPool(4)
-    pool.map(download, links)
-    pool.close()
-    pool.join()
+    if thread_size <= 1:
+        for link in links:
+            download(link)
+    else:
+        pool = ThreadPool(thread_size)
+        pool.map(download, links)
+        pool.close()
+        pool.join()
 
 
 def download(link):
-    success = False
+    source = None
 
-    source = get_source(link)
+    while True:
+        try:
+            source = get_source(link)
+            break
+        except Exception:
+            reconnect()
+
     card_name = str(get_pattern(card_name_pattern, source)).replace("&#x27;", "'")
     cards = load_json()
 
@@ -118,15 +127,15 @@ def download(link):
         print("Failed to find card name in " + link)
         return
 
-    try:
-        while success is False and cards is not None:
+    while cards is not None:
+        try:
             i = next((i for i in range(0, len(cards)) if "name" in cards[i] and cards[i]["name"] == card_name), -1)
             j = next((j for j in range(i+1, len(cards)-i-1) if "name" in cards[j] and cards[j]["name"] == card_name), -1)
 
             if i == -1:
                 print("Failed to find " + card_name + " in json")
-                break
-            elif i != -1 and j != -1 and i != j:
+                return
+            elif j != -1:
                 card_id = "manual" + cards[i]["id"]
             else:
                 card_id = cards[i]["id"]
@@ -135,36 +144,40 @@ def download(link):
                 download_image(card_id, get_pattern(image_pattern, source))
 
             if should_download_video:
-                download_video(card_id, get_pattern(video_pattern, source))
+                pattern = get_pattern(video_pattern, source)
+                if pattern is not None:
+                    download_video(card_id, pattern)
 
             if should_download_audio:
                 group = get_pattern_group(audio_pattern, source)
                 for i in range(0, len(group)):
                     url = group[i].replace(" ", "%20")
                     name = group[i].replace(" ", "_")
-                    download_audio(card_id, get_pattern(audio_name_pattern, name), url)
+                    pattern = get_pattern(audio_name_pattern, name)
 
-            success = True
-    except IncompleteRead or TimeoutError:
-        print("Failed to download " + link)
-        reconnect()
-    except IOError:
-        print("Failed to read " + card_name + " in json file")
+                    if pattern is not None:
+                        download_audio(card_id, pattern, url)
+                    else:
+                        print("Unable to find audio pattern in " + url)
+                        break
 
-
-def get_source(link):
-    source = None
-    while source is None:
-        try:
-            source = get_url_content(site_root + link)
-        except ConnectionResetError:
+            break
+        except IncompleteRead or TimeoutError:
+            print("Failed to download " + link)
             reconnect()
-    return source
+        except IOError:
+            print("Failed to read " + card_name + " in json file")
+            break
+
+
+def get_source(url):
+    return cfscrape.create_scraper().get(site_root + url, timeout=10).content.decode("utf-8")
 
 
 def reconnect():
     print(threading.current_thread().name + ": Connection error. Retrying in 1 minute...")
-    time.sleep(60)
+    time.sleep(120)
+    print(threading.current_thread().name + ": Reconnecting")
 
 
 def load_json():
