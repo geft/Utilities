@@ -16,6 +16,7 @@ from logger import append_log
 should_download_image = True
 should_download_video = True
 should_download_audio = True
+should_download_card_back = False
 
 thread_size = 2
 site_root = "http://www.hearthpwn.com"
@@ -31,6 +32,8 @@ video_pattern = 'data-animationurl=\"(.*?webm)\"'
 
 audio_pattern = 'src=\"(.*ogg)'
 audio_name_pattern = 'sound/(.*ogg)'
+
+card_back_name_pattern = '\d+\/\d+\/(.*)\.'
 
 
 def does_file_exist(file_path):
@@ -97,22 +100,40 @@ def retrieve_url_data(path, name, url, file_type):
             reconnect()
 
 
-def start_download(source):
-    links = get_pattern_group(page_pattern, source)
+def download_card_back(source):
+    group_image = get_pattern_group(image_pattern, source)
+    group_video = get_pattern_group(video_pattern, source)
 
-    if thread_size <= 1:
-        for link in links:
-            download(link)
+    if len(group_image) > 0:
+        for i in range(0, len(group_image)):
+            image = group_image[i]
+            video = group_video[i]
+
+            name = get_pattern(card_back_name_pattern, image)
+
+            download_image(name, image)
+            download_video(name, video)
     else:
-        pool = ThreadPool(thread_size)
-        pool.map(download, links)
-        pool.close()
-        pool.join()
+        print("Unable to find card back links")
+
+
+def start_download(source):
+    if should_download_card_back:
+        download_card_back(source)
+    else:
+        links = get_pattern_group(page_pattern, source)
+
+        if thread_size <= 1:
+            for link in links:
+                download(link)
+        else:
+            pool = ThreadPool(thread_size)
+            pool.map(download, links)
+            pool.close()
+            pool.join()
 
 
 def download(link):
-    source = None
-
     while True:
         try:
             source = get_source(link)
