@@ -159,7 +159,7 @@ def download(link):
             elif i != -1 and j == -1:
                 card_id = cards[i]["id"]
             else:
-                card_id = "manual" + cards[i]["id"]
+                card_id = "zzz " + cards[i]["id"]
 
             if should_download_image:
                 download_image(card_id, get_pattern(image_pattern, source))
