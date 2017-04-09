@@ -151,7 +151,7 @@ def download(link):
     while cards is not None:
         try:
             i = next((i for i in range(0, len(cards)) if "name" in cards[i] and cards[i]["name"] == card_name), -1)
-            j = next((j for j in range(i+1, len(cards)-i-1) if "name" in cards[j] and cards[j]["name"] == card_name), -1)
+            j = next((j for j in range(i+1, len(cards)) if "name" in cards[j] and cards[j]["name"] == card_name), -1)
 
             if i == -1 and j == -1:
                 print("Failed to find " + card_name + " in json")
