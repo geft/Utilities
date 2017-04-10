@@ -152,12 +152,17 @@ def download(link):
         try:
             i = next((i for i in range(0, len(cards)) if "name" in cards[i] and cards[i]["name"] == card_name), -1)
             j = next((j for j in range(i+1, len(cards)) if "name" in cards[j] and cards[j]["name"] == card_name), -1)
+            k = next((k for k in range(j+1, len(cards)) if "name" in cards[k] and cards[k]["name"] == card_name), -1)
 
             if i == -1 and j == -1:
                 print("Failed to find " + card_name + " in json")
                 return
             elif i != -1 and j == -1:
                 card_id = cards[i]["id"]
+            elif k == -1 and (cards[i]["type"] == "ENCHANTMENT" or cards[j]["type"] == "ENCHANTMENT"):
+                card_id = cards[i]["id"]
+                if str(card_id).endswith("e"):
+                    card_id = card_id[0:-1]
             else:
                 card_id = "zzz " + cards[i]["id"]
 
